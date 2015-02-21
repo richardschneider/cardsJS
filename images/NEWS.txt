@@ -1,0 +1,9 @@
+10/29/2011 - Version 1.3 Released
+             Additional cleanup/optimization of court cards.
+             Card Back Template added. One can add their own image or pattern. 
+9/11/2011  - Version 1.2 Released
+             Individual cards now offered in two versions (with or without crop                       
+             marks) - A minor grouping error corrected in combined color set.
+             In combined color set, Card names have been updated in xml.
+6/08/2011  - Version 1.1 released - Wrong QH fixed. ESP cards added.
+4/24/2011  - Initial 1.0 Release of Vectorized Playing Cards
