@@ -1,0 +1,158 @@
+.cards {
+	width: 100%;
+	 -webkit-overflow-scrolling: touch;
+	overflow-x: auto;
+	display: block;
+}
+card {
+	width: 70px;
+}
+/*
+ *  To show a card, simply add the html element card with the cid (card id) as an attribute.
+ *  E.g. <card cid='AS'/>
+ */
+card[cid='AS'] { content: url(AS.svg) }
+card[cid='2S'] { content: url(2S.svg) }
+card[cid='3S'] { content: url(3S.svg) }
+card[cid='4S'] { content: url(4S.svg) }
+card[cid='5S'] { content: url(5S.svg) }
+card[cid='6S'] { content: url(6S.svg) }
+card[cid='7S'] { content: url(7S.svg) }
+card[cid='8S'] { content: url(8S.svg) }
+card[cid='9S'] { content: url(9S.svg) }
+card[cid='TS'] { content: url(10S.svg) }
+card[cid='10S'] { content: url(10S.svg) }
+card[cid='JS'] { content: url(JS.svg) }
+card[cid='QS'] { content: url(QS.svg) }
+card[cid='KS'] { content: url(KS.svg) }
+card[cid='AH'] { content: url(AH.svg) }
+card[cid='2H'] { content: url(2H.svg) }
+card[cid='3H'] { content: url(3H.svg) }
+card[cid='4H'] { content: url(4H.svg) }
+card[cid='5H'] { content: url(5H.svg) }
+card[cid='6H'] { content: url(6H.svg) }
+card[cid='7H'] { content: url(7H.svg) }
+card[cid='8H'] { content: url(8H.svg) }
+card[cid='9H'] { content: url(9H.svg) }
+card[cid='TH'] { content: url(10H.svg) }
+card[cid='10H'] { content: url(10H.svg) }
+card[cid='JH'] { content: url(JH.svg) }
+card[cid='QH'] { content: url(QH.svg) }
+card[cid='KH'] { content: url(KH.svg) }
+card[cid='AD'] { content: url(AD.svg) }
+card[cid='2D'] { content: url(2D.svg) }
+card[cid='3D'] { content: url(3D.svg) }
+card[cid='4D'] { content: url(4D.svg) }
+card[cid='5D'] { content: url(5D.svg) }
+card[cid='6D'] { content: url(6D.svg) }
+card[cid='7D'] { content: url(7D.svg) }
+card[cid='8D'] { content: url(8D.svg) }
+card[cid='9D'] { content: url(9D.svg) }
+card[cid='TD'] { content: url(10D.svg) }
+card[cid='10D'] { content: url(10D.svg) }
+card[cid='JD'] { content: url(JD.svg) }
+card[cid='QD'] { content: url(QD.svg) }
+card[cid='KD'] { content: url(KD.svg) }
+card[cid='AC'] { content: url(AC.svg) }
+card[cid='2C'] { content: url(2C.svg) }
+card[cid='3C'] { content: url(3C.svg) }
+card[cid='4C'] { content: url(4C.svg) }
+card[cid='5C'] { content: url(5C.svg) }
+card[cid='6C'] { content: url(6C.svg) }
+card[cid='7C'] { content: url(7C.svg) }
+card[cid='8C'] { content: url(8C.svg) }
+card[cid='9C'] { content: url(9C.svg) }
+card[cid='TC'] { content: url(10C.svg) }
+card[cid='10C'] { content: url(10C.svg) }
+card[cid='JC'] { content: url(JC.svg) }
+card[cid='QC'] { content: url(QC.svg) }
+card[cid='KC'] { content: url(KC.svg) }
+card[cid='red_back'] { content: url(red_back.svg) }
+card[cid='blue_back'] { content: url(blue_back.svg) }
+
+/*
+ * A hand is an ordered list of cards.
+ * E.g. <ol class="hand">
+ *		  <li><card cid="AS"></li>
+ *        <li><card cid="KS"></li>
+ *      </ol>
+ */
+ol.hand {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+ol.hand li card { 
+	cursor: pointer;
+}
+
+/*
+ * A horizontal hand, class="hand hhand".  The enitire card is visible.
+ */
+ol.hhand li {
+	display: inline-block; 
+}
+ol.hhand li card { 
+	padding-top: 10px;
+}
+ol.hhand li card:hover { 
+	padding-top: 0px;
+	padding-bottom: 10px;
+}
+
+/*
+ * A compact horizontal hand.  Only the last card is entirely visible.
+ */
+ol.hhand-compact li { 
+	display: inline-block; 
+}
+ol.hhand-compact li:first-child card { 
+	margin-left: 0px;
+	padding-top: 10px;
+	cursor: pointer;
+}
+ol.hhand-compact li card { 
+	margin-left: -52px;
+	padding-top: 10px;
+}
+ol.hhand-compact li card:hover { 
+	padding-top: 0px;
+	padding-bottom: 10px;
+}
+
+/*
+ * A compact vertical hand.  Only the last card is entirely visible.
+ */
+ol.vhand-compact {
+	display: inline-block;
+	vertical-align: top;
+}
+ol.vhand-compact li:first-child card { 
+	margin-top: 0px;
+	padding-right: 10px;
+	cursor: pointer;
+}
+ol.vhand-compact li card { 
+	margin-top: -90px;
+	padding-right: 10px;
+}
+ol.vhand-compact li card:hover { 
+	padding-right: 0px;
+	padding-left: 10px;
+}
+
+/*
+ * A fanned hand.  Only the last card is entirely visible.
+ */
+ol.fan {
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+}
+ol.fan li { 
+	display: inline-block; 
+}
+ol.fan li card { 
+	position: absolute;
+	width: 90px;
+}
