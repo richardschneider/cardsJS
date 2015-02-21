@@ -31,6 +31,29 @@ The following hand layouts are available:
 * Vertical hand compact `<ol class="hand vhand-compact">`
 * Fan hand (pseudo 3D) `<ol class="hand fan">`
 
+# Samples
+
+## Hello world
+
+```html
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="cards.css">
+    <title>Hello CardsJS</title>
+  </head>
+  <body>
+  <p>
+    The king of spades is rendered as <card cid='KS'/>.
+  </p>
+	
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="cards.js"></script>
+  </body>
+</html>
+```
+
+Run the [hello world](https://rawgit.com/richardschneider/cardsJS/master/hello.html) sample using [rawgit](http://rawgit.com).
+
 # License
 Copyright © 2015 Richard Schneider (makaretu@gmail.com)
 
