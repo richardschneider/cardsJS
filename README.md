@@ -24,7 +24,7 @@ Cards can be grouped into a hand.  A hand is an `<ol class='hand'>` followed by 
 		<li><card cid="3H"></li>
 	</ol>
 	
-Run the [hand layout](https://rawgit.com/richardschneider/cardsJS/master/hand-layout.html) sample to see the various layouts using [rawgit](http://rawgit.com).
+Run the [hand layouts](https://rawgit.com/richardschneider/cardsJS/master/hand-layouts.html) sample to see the various layouts using [rawgit](http://rawgit.com).
 
 # Hello world
 
