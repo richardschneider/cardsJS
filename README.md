@@ -5,8 +5,8 @@ I'm using the [Vectorized Playing Cards 1.3](http://code.google.com/p/vectorized
 
 # Cards
 
-A new HTML tag, `card`, is defined in [cards.css](cards.css). It has the form `<card cid='id'>`, where *id* the identifier of the card.  The id is the rank and then suit of the card, e.g. 'KS' is the
-[King of spades](https://rawgit.com/richardschneider/cardsJS/master/images/KS.svg).
+A new HTML tag, `card`, is defined in [cards.css](cards.css). It has the form `<card cid='id'>`, where *id* is the identifier of the card.  The id is the rank and then suit of the card, e.g. 'KS' is the
+[King of spades](https://rawgit.com/richardschneider/cardsJS/master/images/KS.svg). The suits are 'S', 'H', 'D' and 'C' for spades, hearts, diamonds and clubs. The rank '10' of a suit is either '10*x*' or 'T*x*'.
 
     The king of spades is rendered as <card cid='KS'/>.
     
