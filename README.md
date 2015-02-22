@@ -1,5 +1,5 @@
 # cardsJS
-Showing playing cards in a browser
+Showing playing cards that are scalable in a browser.
 
 I'm using the [Vectorized Playing Cards 1.3](http://code.google.com/p/vectorized-playing-cards/) designed by Chris Aguilar, see the [readme file](images/readme.txt) for the details. The original SVGs are changed to *not* render in an A4 page, but to fit to size.
 
@@ -12,7 +12,7 @@ A new HTML tag, `card`, is defined in [cards.css](cards.css). It has the form `<
     
 ## Hands
 
-Cards can be grouped into a hand.  A hand is an `<ol class='hand'>` followed by list items with the `card`. When the mouse is over a `card` in an hand, the card is moved veritically/horizontally to indicate that it will be selected.
+Cards can be grouped into a hand.  A hand is an `<ol class='hand'>` followed by list items with the `card` tag. When the mouse is over a `card` in an hand, the card is moved veritically/horizontally to indicate that it will be selected.
 
     <ol class="hand hhand-compact">
 		<li><card cid="AS"></li>
@@ -24,8 +24,6 @@ Cards can be grouped into a hand.  A hand is an `<ol class='hand'>` followed by 
 		<li><card cid="3H"></li>
 	</ol>
 	
-Run the [hand layouts](https://rawgit.com/richardschneider/cardsJS/master/hand-layouts.html) sample to see the various layouts using [rawgit](http://rawgit.com).
-
 # Hello world
 
 ```html
