@@ -38,7 +38,7 @@
 
 <p>
 This project allows you to create beautiful pages containing the standard playing cards.  It is as simple as adding the HTML tag 
-<code>&lt;card cid='KS'/></code> to display the king of spades. 
+<code>&lt;img cid='KS'/></code> to display the king of spades. 
 </p>
 
 <p>
@@ -47,24 +47,20 @@ Each card is a SVG image; this allows scaling and rotation of the card image wit
 </p>
 
 <div id="card-images">
-<div class="btn-group-vertical" role="group" style="vertical-align: top; padding-top: 10px; padding-right: 6px;">
+  <div class="btn-group-vertical" role="group" style="vertical-align: top; padding-top: 10px; padding-right: 6px;">
       <button id="bigger" type="button" class="btn btn-default btn-xs">
         <span class="glyphicon glyphicon-plus"></span>
       </button>
       <button id="smaller" type="button" class="btn btn-default btn-xs">
         <span class="glyphicon glyphicon-minus"></span>
       </button>
-</div>
+  </div>
 
-<div style="display: inline-block">
-<ol class="hand hhand">
-  <li><card cid="AS"></li>
-  <li><card cid="KS"></li>
-  <li><card cid="QS"></li>
-  <li><card cid="JS"></li>
-  <li><card cid="10S"></li>
- </ol>
- </div>
+  <img cid="AS">
+  <img cid="KS">
+  <img cid="QS">
+  <img cid="JS">
+  <img cid="10S">
 </div>
 
 <h3>
@@ -91,12 +87,8 @@ or raise an <a href="https://github.com/richardschneider/cardsJS/issues">issue</
       </footer>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript">
-        console.warn("loading jquery");
-    </script>
-    <script type="text/javascript"src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script type="text/javascript">
-        console.warn("a");
         function incrementCard(cards, v) {
             if (cards.length == 0) return;
             var width = cards[0].clientWidth + v;
@@ -104,14 +96,12 @@ or raise an <a href="https://github.com/richardschneider/cardsJS/issues">issue</
                 cards.width(width + "px");
         }
 
-        console.warn("b");
         $("#bigger").on('click', function (e) {
-            incrementCard($("#card-images card"), 10);
+            incrementCard($("#card-images img"), 10);
         });
         $("#smaller").on('click', function (e) {
-            incrementCard($("#card-images card"), -10);
+            incrementCard($("#card-images img"), -10);
         });
-        console.warn("c");
 
     </script>    
 

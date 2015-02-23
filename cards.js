@@ -24,7 +24,7 @@ cards = (function() {
 	  },
 	  
 	  fan: function (hand){ 
-		  fanCards(hand.find("card"), this); 
+		  fanCards(hand.find("img[cid]"), this); 
 	  },
 	  
 	  cardSetTop: function(card, top){ 
@@ -203,4 +203,4 @@ if(!Math.rotatePointInBox)
 $(document).ready(function() { cards.fan($(".fan")) });
 
 // Call cards.play, when a card is clicked.
-$( ".hand" ).on( "click", "li card", function() { cards.play($(this)) });
+$( ".hand" ).on( "click", "li img[cid]", function() { cards.play($(this)) });

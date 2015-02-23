@@ -1,80 +1,79 @@
-.cards {
-	width: 100%;
-	 -webkit-overflow-scrolling: touch;
-	overflow-x: auto;
-	display: block;
-}
-card {
+img[cid] {
 	width: 70px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: initial;
+	box-sizing: initial;
 }
 /*
- *  To show a card, simply add the html element card with the cid (card id) as an attribute.
- *  E.g. <card cid='AS'/>
+ *  To show a card, simply use <img> with the cid (card id) attribute.
+ *  E.g. <img cid='AS'/>
  */
-card[cid='AS'] { content: url(images/AS.svg) }
-card[cid='2S'] { content: url(images/2S.svg) }
-card[cid='3S'] { content: url(images/3S.svg) }
-card[cid='4S'] { content: url(images/4S.svg) }
-card[cid='5S'] { content: url(images/5S.svg) }
-card[cid='6S'] { content: url(images/6S.svg) }
-card[cid='7S'] { content: url(images/7S.svg) }
-card[cid='8S'] { content: url(images/8S.svg) }
-card[cid='9S'] { content: url(images/9S.svg) }
-card[cid='TS'] { content: url(images/10S.svg) }
-card[cid='10S'] { content: url(images/10S.svg) }
-card[cid='JS'] { content: url(images/JS.svg) }
-card[cid='QS'] { content: url(images/QS.svg) }
-card[cid='KS'] { content: url(images/KS.svg) }
-card[cid='AH'] { content: url(images/AH.svg) }
-card[cid='2H'] { content: url(images/2H.svg) }
-card[cid='3H'] { content: url(images/3H.svg) }
-card[cid='4H'] { content: url(images/4H.svg) }
-card[cid='5H'] { content: url(images/5H.svg) }
-card[cid='6H'] { content: url(images/6H.svg) }
-card[cid='7H'] { content: url(images/7H.svg) }
-card[cid='8H'] { content: url(images/8H.svg) }
-card[cid='9H'] { content: url(images/9H.svg) }
-card[cid='TH'] { content: url(images/10H.svg) }
-card[cid='10H'] { content: url(images/10H.svg) }
-card[cid='JH'] { content: url(images/JH.svg) }
-card[cid='QH'] { content: url(images/QH.svg) }
-card[cid='KH'] { content: url(images/KH.svg) }
-card[cid='AD'] { content: url(images/AD.svg) }
-card[cid='2D'] { content: url(images/2D.svg) }
-card[cid='3D'] { content: url(images/3D.svg) }
-card[cid='4D'] { content: url(images/4D.svg) }
-card[cid='5D'] { content: url(images/5D.svg) }
-card[cid='6D'] { content: url(images/6D.svg) }
-card[cid='7D'] { content: url(images/7D.svg) }
-card[cid='8D'] { content: url(images/8D.svg) }
-card[cid='9D'] { content: url(images/9D.svg) }
-card[cid='TD'] { content: url(images/10D.svg) }
-card[cid='10D'] { content: url(images/10D.svg) }
-card[cid='JD'] { content: url(images/JD.svg) }
-card[cid='QD'] { content: url(images/QD.svg) }
-card[cid='KD'] { content: url(images/KD.svg) }
-card[cid='AC'] { content: url(images/AC.svg) }
-card[cid='2C'] { content: url(images/2C.svg) }
-card[cid='3C'] { content: url(images/3C.svg) }
-card[cid='4C'] { content: url(images/4C.svg) }
-card[cid='5C'] { content: url(images/5C.svg) }
-card[cid='6C'] { content: url(images/6C.svg) }
-card[cid='7C'] { content: url(images/7C.svg) }
-card[cid='8C'] { content: url(images/8C.svg) }
-card[cid='9C'] { content: url(images/9C.svg) }
-card[cid='TC'] { content: url(images/10C.svg) }
-card[cid='10C'] { content: url(images/10C.svg) }
-card[cid='JC'] { content: url(images/JC.svg) }
-card[cid='QC'] { content: url(images/QC.svg) }
-card[cid='KC'] { content: url(images/KC.svg) }
-card[cid='red_back'] { content: url(images/red_back.svg) }
-card[cid='blue_back'] { content: url(images/blue_back.svg) }
+img[cid='AS'] { content: url(images/AS.svg) }
+img[cid='2S'] { content: url(images/2S.svg) }
+img[cid='3S'] { content: url(images/3S.svg) }
+img[cid='4S'] { content: url(images/4S.svg) }
+img[cid='5S'] { content: url(images/5S.svg) }
+img[cid='6S'] { content: url(images/6S.svg) }
+img[cid='7S'] { content: url(images/7S.svg) }
+img[cid='8S'] { content: url(images/8S.svg) }
+img[cid='9S'] { content: url(images/9S.svg) }
+img[cid='TS'] { content: url(images/10S.svg) }
+img[cid='10S'] { content: url(images/10S.svg) }
+img[cid='JS'] { content: url(images/JS.svg) }
+img[cid='QS'] { content: url(images/QS.svg) }
+img[cid='KS'] { content: url(images/KS.svg) }
+img[cid='AH'] { content: url(images/AH.svg) }
+img[cid='2H'] { content: url(images/2H.svg) }
+img[cid='3H'] { content: url(images/3H.svg) }
+img[cid='4H'] { content: url(images/4H.svg) }
+img[cid='5H'] { content: url(images/5H.svg) }
+img[cid='6H'] { content: url(images/6H.svg) }
+img[cid='7H'] { content: url(images/7H.svg) }
+img[cid='8H'] { content: url(images/8H.svg) }
+img[cid='9H'] { content: url(images/9H.svg) }
+img[cid='TH'] { content: url(images/10H.svg) }
+img[cid='10H'] { content: url(images/10H.svg) }
+img[cid='JH'] { content: url(images/JH.svg) }
+img[cid='QH'] { content: url(images/QH.svg) }
+img[cid='KH'] { content: url(images/KH.svg) }
+img[cid='AD'] { content: url(images/AD.svg) }
+img[cid='2D'] { content: url(images/2D.svg) }
+img[cid='3D'] { content: url(images/3D.svg) }
+img[cid='4D'] { content: url(images/4D.svg) }
+img[cid='5D'] { content: url(images/5D.svg) }
+img[cid='6D'] { content: url(images/6D.svg) }
+img[cid='7D'] { content: url(images/7D.svg) }
+img[cid='8D'] { content: url(images/8D.svg) }
+img[cid='9D'] { content: url(images/9D.svg) }
+img[cid='TD'] { content: url(images/10D.svg) }
+img[cid='10D'] { content: url(images/10D.svg) }
+img[cid='JD'] { content: url(images/JD.svg) }
+img[cid='QD'] { content: url(images/QD.svg) }
+img[cid='KD'] { content: url(images/KD.svg) }
+img[cid='AC'] { content: url(images/AC.svg) }
+img[cid='2C'] { content: url(images/2C.svg) }
+img[cid='3C'] { content: url(images/3C.svg) }
+img[cid='4C'] { content: url(images/4C.svg) }
+img[cid='5C'] { content: url(images/5C.svg) }
+img[cid='6C'] { content: url(images/6C.svg) }
+img[cid='7C'] { content: url(images/7C.svg) }
+img[cid='8C'] { content: url(images/8C.svg) }
+img[cid='9C'] { content: url(images/9C.svg) }
+img[cid='TC'] { content: url(images/10C.svg) }
+img[cid='10C'] { content: url(images/10C.svg) }
+img[cid='JC'] { content: url(images/JC.svg) }
+img[cid='QC'] { content: url(images/QC.svg) }
+img[cid='KC'] { content: url(images/KC.svg) }
+img[cid='red_back'] { content: url(images/red_back.svg) }
+img[cid='blue_back'] { content: url(images/blue_back.svg) }
 
 /*
  * A hand is an ordered list of cards.
  * E.g. <ol class="hand">
- *		  <li><card cid="AS"></li>
- *        <li><card cid="KS"></li>
+ *		  <li><img cid="AS"></li>
+ *        <li><img cid="KS"></li>
  *      </ol>
  */
 ol.hand {
@@ -82,7 +81,7 @@ ol.hand {
 	padding: 0;
 	margin: 0;
 }
-ol.hand li card { 
+ol.hand li img[cid] { 
 	cursor: pointer;
 }
 
@@ -92,10 +91,10 @@ ol.hand li card {
 ol.hhand li {
 	display: inline-block; 
 }
-ol.hhand li card { 
+ol.hhand li img[cid] { 
 	padding-top: 10px;
 }
-ol.hhand li card:hover { 
+ol.hhand li img[cid]:hover { 
 	padding-top: 0px;
 	padding-bottom: 10px;
 }
@@ -106,16 +105,16 @@ ol.hhand li card:hover {
 ol.hhand-compact li { 
 	display: inline-block; 
 }
-ol.hhand-compact li:first-child card { 
+ol.hhand-compact li:first-child img[cid] { 
 	margin-left: 0px;
 	padding-top: 10px;
 	cursor: pointer;
 }
-ol.hhand-compact li card { 
+ol.hhand-compact li img[cid] { 
 	margin-left: -52px;
 	padding-top: 10px;
 }
-ol.hhand-compact li card:hover { 
+ol.hhand-compact li img[cid]:hover { 
 	padding-top: 0px;
 	padding-bottom: 10px;
 }
@@ -127,16 +126,16 @@ ol.vhand-compact {
 	display: inline-block;
 	vertical-align: top;
 }
-ol.vhand-compact li:first-child card { 
+ol.vhand-compact li:first-child img[cid] { 
 	margin-top: 0px;
 	padding-right: 10px;
 	cursor: pointer;
 }
-ol.vhand-compact li card { 
+ol.vhand-compact li img[cid] { 
 	margin-top: -90px;
 	padding-right: 10px;
 }
-ol.vhand-compact li card:hover { 
+ol.vhand-compact li img[cid]:hover { 
 	padding-right: 0px;
 	padding-left: 10px;
 }
@@ -152,7 +151,7 @@ ol.fan {
 ol.fan li { 
 	display: inline-block; 
 }
-ol.fan li card { 
+ol.fan li img[cid] { 
 	position: absolute;
 	width: 90px;
 }
