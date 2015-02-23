@@ -77,7 +77,6 @@ img[cid='blue_back'] { content: url(images/blue_back.svg) }
  *      </div>
  */
 .hand {
-	list-style-type: none;
 	padding: 0;
 	margin: 0;
 }
@@ -150,6 +149,7 @@ img[cid='blue_back'] { content: url(images/blue_back.svg) }
 	display: inline-block;
 	vertical-align: top;
 	position: relative;
+	padding-bottom: 1em;
 }
 .fan img[cid] { 
 	position: absolute;

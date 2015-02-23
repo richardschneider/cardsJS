@@ -43,7 +43,12 @@ cards = (function () {
 
         var width = cards[0].clientWidth;
         var height = cards[0].clientHeight;
-        var coords = calculateCoords(n, self.arc_radius, width, height, self.direction, self.spacing);
+        var box = {};
+        var coords = calculateCoords(n, self.arc_radius, width, height, self.direction, self.spacing, box);
+
+        var hand = $(cards[0]).parent();
+        hand.width(box.width);
+        hand.height(box.height);
 
         var i = 0;
         coords.forEach(function (coord) {
@@ -58,9 +63,10 @@ cards = (function () {
                 card.style[prefix + "Transform"] = "rotate(" + rotationAngle + "deg)" + " translateZ(0)";
             });
         });
+
     }
 
-    function calculateCoords(numCards, arcRadius, cardWidth, cardHeight, direction, cardSpacing) {
+    function calculateCoords(numCards, arcRadius, cardWidth, cardHeight, direction, cardSpacing, box) {
         // The separation between the cards, in terms of rotation around the circle's origin
         var anglePerCard = Math.radiansToDegrees(Math.atan(((cardWidth * cardSpacing) / arcRadius)));
 
@@ -132,6 +138,9 @@ cards = (function () {
             coord.angle = Math.round(coord.angle);
         });
 
+        box.width = coords[numCards-1].x + cardWidth;
+        box.height = coords[numCards-1].y + cardHeight;
+
         return coords;
     }
 
@@ -197,7 +206,7 @@ if(!Math.rotatePointInBox)
 }
 
 // When the document is ready, then adjust the cards in a fan.
-$(document).ready(function() { cards.fan($(".fan")) });
+$(window).load(function() { cards.fan($(".fan")) });
 
 // Call cards.play, when a card is clicked in an active hand.
 $(".hand").on("click", "img[cid]", function () { cards.play($(this)) });
