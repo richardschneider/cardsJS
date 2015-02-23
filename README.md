@@ -1,11 +1,11 @@
 # cardsJS
-Showing playing cards that are scalable in a browser.
+Showing playing cards that are scalable in a browser is possible with cardJS.  See the [web site](http://richardschneider.github.io/cardsJS) for some examples.
 
 I'm using the [Vectorized Playing Cards 1.3](http://code.google.com/p/vectorized-playing-cards/) designed by Chris Aguilar, see the [readme file](images/readme.txt) for the details. The original SVGs are changed to *not* render in an A4 page, but to fit to size.
 
 ## Cards
 
-Use an `<img cid='id'>` HTML tag; where *id* is the identifier of the card.  The id is composed of the rank and then thesuit of the card,
+Use an `<img cid='id'>` HTML tag; where *id* is the identifier of the card.  The *id* is composed of the rank and then the suit of the card,
 e.g. 'KS' is the [King of spades](https://rawgit.com/richardschneider/cardsJS/master/images/KS.svg). 
 The suits are 'S', 'H', 'D' and 'C' for spades, hearts, diamonds and clubs. The rank '10' of a suit *x* is either '10*x*' or 'T*x*'.
 
