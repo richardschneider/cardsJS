@@ -81,7 +81,7 @@ img[cid='blue_back'] { content: url(images/blue_back.svg) }
 	padding: 0;
 	margin: 0;
 }
-.hand img[cid] { 
+.hand.active-hand img[cid] { 
 	cursor: pointer;
 }
 
@@ -94,7 +94,7 @@ img[cid='blue_back'] { content: url(images/blue_back.svg) }
 .hhand img[cid] { 
 	padding-top: 10px;
 }
-.hhand img[cid]:hover { 
+.hhand.active-hand img[cid]:hover { 
 	padding-top: 0px;
 	padding-bottom: 10px;
 }
@@ -108,13 +108,12 @@ img[cid='blue_back'] { content: url(images/blue_back.svg) }
 .hhand-compact img[cid]:first-child { 
 	margin-left: 0px;
 	padding-top: 10px;
-	cursor: pointer;
 }
 .hhand-compact img[cid] { 
 	margin-left: -52px;
 	padding-top: 10px;
 }
-.hhand-compact img[cid]:hover { 
+.hhand-compact.active-hand img[cid]:hover { 
 	padding-top: 0px;
 	padding-bottom: 10px;
 }
@@ -137,7 +136,7 @@ img[cid='blue_back'] { content: url(images/blue_back.svg) }
 	margin-top: -80px;
 	padding-right: 10px;
 }
-.vhand-compact img[cid]:hover { 
+.vhand-compact.active-hand img[cid]:hover { 
 	display: block; 
 	padding-right: 0px;
 	padding-left: 10px;

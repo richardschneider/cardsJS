@@ -1,145 +1,142 @@
 
-cards = (function() {
+cards = (function () {
 
-	var module = {
-	  spacing: 0.20, // How much to show between cards, expressed as percentage of textureWidth
-	  arc_radius: 400, // This is the radius of the circle under the fan of cards and thus controls the overall curvature of the fan. Small values means higher curvature
-	  direction: "N",
+    var module = {
+        spacing: 0.20, // How much to show between cards, expressed as percentage of textureWidth
+        arc_radius: 400, // This is the radius of the circle under the fan of cards and thus controls the overall curvature of the fan. Small values means higher curvature
+        direction: "N",
 
-	  // Play is called whenever a card in a hand is clicked.
-	  // This implementation simply removes the card from the hand.
-	  play: function(card) {
-		  console.log( card.attr("cid") + " removed" );
-		  this.remove(card);
-	  },
-	  
-	  // Remove a card from the hand.
-	  remove: function(card) {
-		  var hand = card.parent();
-		  card.remove();
-		  
-		  // New layout if card removed from a "fan".
-		  if (hand.hasClass("fan"))
-			this.fan(hand);
-	  },
-	  
-	  fan: function (hand){ 
-		  fanCards(hand.find("img[cid]"), this); 
-	  },
-	  
-	  cardSetTop: function(card, top){ 
-		  card.style.top = top + "px";
-	  }
-	};
+        // Play is called whenever a card in an hand is clicked.  If the hand is active
+        // then playCard is called.
+        play: function (card) {
+            if (card.parents(".active-hand").length > 0) {
+                console.log(card.attr("cid") + " played");
+                this.playCard(card);
+            }
+        },
 
-	function fanCards(cards, self) {
-		var n = cards.length;
-		if (n == 0) return;
-		
-		var width = cards[0].clientWidth;
-		var height = cards[0].clientHeight;
-		var coords = calculateCoords(n, self.arc_radius, width, height, self.direction, self.spacing);
-		
-		var i = 0;
-		coords.forEach(function(coord)
-		{
-			var card = cards[i++];
-			card.style.left = coord.x + "px";
-			card.style.top = coord.y + "px";
-			card.onmouseover = function(){self.cardSetTop(card, coord.y-10)};
-			card.onmouseout = function(){self.cardSetTop(card, coord.y)};
-			var rotationAngle = Math.round(coord.angle);
-			var prefixes = [ "Webkit", "Moz", "O", "ms" ];
-			prefixes.forEach(function(prefix) {
-				card.style[prefix + "Transform"] = "rotate(" + rotationAngle + "deg)" + " translateZ(0)";
-			});
-		});
-	}
+        // Remove a card from the hand.
+        remove: function (card) {
+            var hand = card.parent();
+            card.remove();
 
-	function calculateCoords(numCards, arcRadius, cardWidth, cardHeight, direction, cardSpacing)
-	{
-		// The separation between the cards, in terms of rotation around the circle's origin
-		var anglePerCard = Math.radiansToDegrees(Math.atan(((cardWidth*cardSpacing)/arcRadius)));
+            // New layout if card removed from a "fan".
+            if (hand.hasClass("fan"))
+                this.fan(hand);
+        },
 
-		var angleOffset = ({"N" : 270, "S" : 90, "E" : 0, "W" : 180})[direction];    
-		
-		var startAngle = angleOffset-0.5*anglePerCard*(numCards-1);
-			
-		var coords = [];
-		var i;
-		var minX = 99999;
-		var minY = 99999;
-		var maxX = -minX;
-		var maxY = -minY;
-		for(i=0;i<numCards;i++)
-		{
-			var degrees = startAngle + anglePerCard*i;
-			
-			var radians= Math.degreesToRadians(degrees);
-			var x = cardWidth / 2 + Math.cos(radians) * arcRadius;
-			var y = cardHeight / 2 + Math.sin(radians) * arcRadius;
-			
-			minX = Math.min(minX, x);
-			minY = Math.min(minY, y);  
-			maxX = Math.max(maxX, x);
-			maxY = Math.max(maxY, y);
-			
-			coords.push({x:x, y:y, angle:degrees+90});
-		} 
-		
-		var rotatedDimensions = Math.getRotatedDimensions(coords[0].angle, cardWidth, cardHeight);
+        fan: function (hand) {
+            fanCards(hand.find("img[cid]"), this);
+        },
 
-		var offsetX = 0;
-		var offsetY = 0;
-		
-		if(direction==="N")
-		{
-			offsetX = (minX*-1);
-			offsetX += ((rotatedDimensions[0]-cardWidth)/2);
-			
-			offsetY = (minY*-1);
-		}
-		else if(direction==="S")
-		{
-			offsetX = (minX*-1);
-			offsetX += ((rotatedDimensions[0]-cardWidth)/2);
-			
-			offsetY = ((minY+(maxY-minY))*-1);
-		}
-		else if(direction==="W")
-		{
-			offsetY = (minY*-1);
-			offsetY += ((rotatedDimensions[1]-cardHeight)/2);
+        cardSetTop: function (card, top) {
+            card.style.top = top + "px";
+        }
+    };
 
-			offsetX = (minX*-1);
-			offsetX += (cardHeight-Math.rotatePointInBox(0, 0, 270, cardWidth, cardHeight)[1]);
-		}
-		else if(direction==="E")
-		{
-			offsetY = (minY*-1);
-			offsetY += ((rotatedDimensions[1]-cardHeight)/2);
+    // The default is to remove the card from the hand.
+    module.playCard = module.remove;
 
-			offsetX = (arcRadius)*-1;
-			offsetX -= (cardHeight-Math.rotatePointInBox(0, 0, 270, cardWidth, cardHeight)[1]);
-			//offsetX -= ?????;    // HELP! Needs to line up with yellow line!
-		}
-		
-		coords.forEach(function(coord)
-		{
-			coord.x+=offsetX;
-			coord.x = Math.round(coord.x);
-			
-			coord.y+=offsetY;
-			coord.y = Math.round(coord.y);
-			
-			coord.angle = Math.round(coord.angle);
-		});
-		
-		return coords;
-	}
-	
-	return module;
-}());
+    function fanCards(cards, self) {
+        var n = cards.length;
+        if (n == 0) return;
+
+        var width = cards[0].clientWidth;
+        var height = cards[0].clientHeight;
+        var coords = calculateCoords(n, self.arc_radius, width, height, self.direction, self.spacing);
+
+        var i = 0;
+        coords.forEach(function (coord) {
+            var card = cards[i++];
+            card.style.left = coord.x + "px";
+            card.style.top = coord.y + "px";
+            card.onmouseover = function () { self.cardSetTop(card, coord.y - 10) };
+            card.onmouseout = function () { self.cardSetTop(card, coord.y) };
+            var rotationAngle = Math.round(coord.angle);
+            var prefixes = ["Webkit", "Moz", "O", "ms"];
+            prefixes.forEach(function (prefix) {
+                card.style[prefix + "Transform"] = "rotate(" + rotationAngle + "deg)" + " translateZ(0)";
+            });
+        });
+    }
+
+    function calculateCoords(numCards, arcRadius, cardWidth, cardHeight, direction, cardSpacing) {
+        // The separation between the cards, in terms of rotation around the circle's origin
+        var anglePerCard = Math.radiansToDegrees(Math.atan(((cardWidth * cardSpacing) / arcRadius)));
+
+        var angleOffset = ({ "N": 270, "S": 90, "E": 0, "W": 180 })[direction];
+
+        var startAngle = angleOffset - 0.5 * anglePerCard * (numCards - 1);
+
+        var coords = [];
+        var i;
+        var minX = 99999;
+        var minY = 99999;
+        var maxX = -minX;
+        var maxY = -minY;
+        for (i = 0; i < numCards; i++) {
+            var degrees = startAngle + anglePerCard * i;
+
+            var radians = Math.degreesToRadians(degrees);
+            var x = cardWidth / 2 + Math.cos(radians) * arcRadius;
+            var y = cardHeight / 2 + Math.sin(radians) * arcRadius;
+
+            minX = Math.min(minX, x);
+            minY = Math.min(minY, y);
+            maxX = Math.max(maxX, x);
+            maxY = Math.max(maxY, y);
+
+            coords.push({ x: x, y: y, angle: degrees + 90 });
+        }
+
+        var rotatedDimensions = Math.getRotatedDimensions(coords[0].angle, cardWidth, cardHeight);
+
+        var offsetX = 0;
+        var offsetY = 0;
+
+        if (direction === "N") {
+            offsetX = (minX * -1);
+            offsetX += ((rotatedDimensions[0] - cardWidth) / 2);
+
+            offsetY = (minY * -1);
+        }
+        else if (direction === "S") {
+            offsetX = (minX * -1);
+            offsetX += ((rotatedDimensions[0] - cardWidth) / 2);
+
+            offsetY = ((minY + (maxY - minY)) * -1);
+        }
+        else if (direction === "W") {
+            offsetY = (minY * -1);
+            offsetY += ((rotatedDimensions[1] - cardHeight) / 2);
+
+            offsetX = (minX * -1);
+            offsetX += (cardHeight - Math.rotatePointInBox(0, 0, 270, cardWidth, cardHeight)[1]);
+        }
+        else if (direction === "E") {
+            offsetY = (minY * -1);
+            offsetY += ((rotatedDimensions[1] - cardHeight) / 2);
+
+            offsetX = (arcRadius) * -1;
+            offsetX -= (cardHeight - Math.rotatePointInBox(0, 0, 270, cardWidth, cardHeight)[1]);
+            //offsetX -= ?????;    // HELP! Needs to line up with yellow line!
+        }
+
+        coords.forEach(function (coord) {
+            coord.x += offsetX;
+            coord.x = Math.round(coord.x);
+
+            coord.y += offsetY;
+            coord.y = Math.round(coord.y);
+
+            coord.angle = Math.round(coord.angle);
+        });
+
+        return coords;
+    }
+
+    return module;
+} ());
 
 // Math Additions
 if(!Math.degreesToRadians)
@@ -202,5 +199,5 @@ if(!Math.rotatePointInBox)
 // When the document is ready, then adjust the cards in a fan.
 $(document).ready(function() { cards.fan($(".fan")) });
 
-// Call cards.play, when a card is clicked.
-$( ".hand" ).on( "click", "img[cid]", function() { cards.play($(this)) });
+// Call cards.play, when a card is clicked in an active hand.
+$(".hand").on("click", "img[cid]", function () { cards.play($(this)) });

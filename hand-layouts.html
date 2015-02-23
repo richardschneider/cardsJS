@@ -24,8 +24,8 @@
         <h1>Hand Layouts</h1>
         <p>Cards can be grouped into a hand. A hand is a <code>&lt;div class='hand'></code> containing the cards 
         (<code>&lt;img cid=".."></code>). 
-        When the mouse is over a hand's card, the card is moved veritically or horizontally to indicate that it 
-        will be selected.
+        When the mouse is over an active hand's card, the card is moved veritically or horizontally to indicate that it 
+        will be selected. Use <code>class="active-hand"</code> to make a hand active.
         </p>
       </div>
     </div>
@@ -34,7 +34,7 @@
 <div class="row">
   <div class="col-md-6">
 	<p>A simple horizontal layout of a hand.  Every card is completely visible. Hovering over the card will make it jump up.</p>
-    <div class="hand hhand">
+    <div class="hand hhand active-hand">
 		<img cid="AS">
 		<img cid="KS">
 		<img cid="QS">
@@ -61,7 +61,7 @@
 <div class="row">
   <div class="col-md-6">
 	<p>A horizontal layout where cards are overlapped. Hovering over the card will make it jump up.</p>
-	<div class="hand hhand-compact">
+	<div class="hand hhand-compact active-hand">
 		<img cid="AS">
 		<img cid="KS">
 		<img cid="QS">
@@ -93,6 +93,7 @@
 	A vertical layout with overlapping cards.  Each is column contains all the cards for the suit.  This can be used
 	to display a dummy hand in bridge.  Hovering over the card will make it jump to the right.
 	</p>
+    <div class="active-hand">
 	<div class="hand vhand-compact">
 		<img cid="AS">
 		<img cid="KS">
@@ -114,6 +115,7 @@
 		<img cid="7C">
 		<img cid="6C">
 	</div>
+    </div>
   </div>
   <div class="col-md-3">
 	<pre>
@@ -152,7 +154,7 @@
 	player's hand.  Hovering over the card will make it jump up.
 	</p>
 	<div class="alert alert-warning" role="alert">Requires javascript for positioning and rotation.</div>
-	<div class="hand fan">
+	<div class="hand fan active-hand">
 		<img cid="AS">
 		<img cid="KS">
 		<img cid="QS">
