@@ -22,9 +22,9 @@
     <div class="jumbotron">
       <div class="container">
         <h1>Hand Layouts</h1>
-        <p>Cards can be grouped into a hand. A hand is an <code>&lt;ol class='hand'></code> followed by card list item(s) 
-        (<code>&lt;li>&lt;img cid="..">&lt;/li></code>). 
-        When the mouse is over a card in an hand, the card is moved veritically or horizontally to indicate that it 
+        <p>Cards can be grouped into a hand. A hand is a <code>&lt;div class='hand'></code> containing the cards 
+        (<code>&lt;img cid=".."></code>). 
+        When the mouse is over a hand's card, the card is moved veritically or horizontally to indicate that it 
         will be selected.
         </p>
       </div>
@@ -34,26 +34,26 @@
 <div class="row">
   <div class="col-md-6">
 	<p>A simple horizontal layout of a hand.  Every card is completely visible. Hovering over the card will make it jump up.</p>
-    <ol class="hand hhand">
-		<li><img cid="AS"></li>
-		<li><img cid="KS"></li>
-		<li><img cid="QS"></li>
-		<li><img cid="JS"></li>
-		<li><img cid="10S"></li>
-		<li><img cid="9H"></li>
-		<li><img cid="3H"></li>
-	</ol>
+    <div class="hand hhand">
+		<img cid="AS">
+		<img cid="KS">
+		<img cid="QS">
+		<img cid="JS">
+		<img cid="10S">
+		<img cid="9H">
+		<img cid="3H">
+	</div>
   </div>
   <div class="col-md-3">
-	<pre><code>&lt;ol class="hand hhand">
-  &lt;li>&lt;img cid="AS">&lt;/li>
-  &lt;li>&lt;img cid="KS">&lt;/li>
-  &lt;li>&lt;img cid="QS">&lt;/li>
-  &lt;li>&lt;img cid="JS">&lt;/li>
-  &lt;li>&lt;img cid="10S">&lt;/li>
-  &lt;li>&lt;img cid="9H">&lt;/li>
-  &lt;li>&lt;img cid="3H">&lt;/li>
-&lt;/ol></code></pre>
+	<pre><code>&lt;div class="hand hhand">
+  &lt;img cid="AS">
+  &lt;img cid="KS">
+  &lt;img cid="QS">
+  &lt;img cid="JS">
+  &lt;img cid="10S">
+  &lt;img cid="9H">
+  &lt;img cid="3H">
+&lt;/div></code></pre>
 	</div>
 </div>
 	
@@ -61,27 +61,27 @@
 <div class="row">
   <div class="col-md-6">
 	<p>A horizontal layout where cards are overlapped. Hovering over the card will make it jump up.</p>
-	<ol class="hand hhand-compact">
-		<li><img cid="AS"></li>
-		<li><img cid="KS"></li>
-		<li><img cid="QS"></li>
-		<li><img cid="JS"></li>
-		<li><img cid="10S"></li>
-		<li><img cid="9H"></li>
-		<li><img cid="3H"></li>
-	</ol>
+	<div class="hand hhand-compact">
+		<img cid="AS">
+		<img cid="KS">
+		<img cid="QS">
+		<img cid="JS">
+		<img cid="10S">
+		<img cid="9H">
+		<img cid="3H">
+	</div>
   </div>
   <div class="col-md-3">
 	<pre>
-&lt;ol class="hand hhand-compact">
-  &lt;li>&lt;img cid="AS">&lt;/li>
-  &lt;li>&lt;img cid="KS">&lt;/li>
-  &lt;li>&lt;img cid="QS">&lt;/li>
-  &lt;li>&lt;img cid="JS">&lt;/li>
-  &lt;li>&lt;img cid="10S">&lt;/li>
-  &lt;li>&lt;img cid="9H">&lt;/li>
-  &lt;li>&lt;img cid="3H">&lt;/li>
-&lt;/ol>
+&lt;div class="hand hhand-compact">
+  &lt;img cid="AS">
+  &lt;img cid="KS">
+  &lt;img cid="QS">
+  &lt;img cid="JS">
+  &lt;img cid="10S">
+  &lt;img cid="9H">
+  &lt;img cid="3H">
+&lt;/div>
 	</pre>
 	</div>
 </div>
@@ -93,52 +93,52 @@
 	A vertical layout with overlapping cards.  Each is column contains all the cards for the suit.  This can be used
 	to display a dummy hand in bridge.  Hovering over the card will make it jump to the right.
 	</p>
-	<ol class="hand vhand-compact">
-		<li><img cid="AS"></li>
-		<li><img cid="KS"></li>
-		<li><img cid="QS"></li>
-		<li><img cid="JS"></li>
-		<li><img cid="10S"></li>
-	</ol>
-	<ol class="hand vhand-compact">
-		<li><img cid="9H"></li>
-		<li><img cid="3H"></li>
-	</ol>
-	<ol class="hand vhand-compact">
-		<li><img cid="10D"></li>
-		<li><img cid="4D"></li>
-		<li><img cid="2D"></li>
-	</ol>
-	<ol class="hand vhand-compact">
-		<li><img cid="8C"></li>
-		<li><img cid="7C"></li>
-		<li><img cid="6C"></li>
-	</ol>
+	<div class="hand vhand-compact">
+		<img cid="AS">
+		<img cid="KS">
+		<img cid="QS">
+		<img cid="JS">
+		<img cid="10S">
+	</div>
+	<div class="hand vhand-compact">
+		<img cid="9H">
+		<img cid="3H">
+	</div>
+	<div class="hand vhand-compact">
+		<img cid="10D">
+		<img cid="4D">
+		<img cid="2D">
+	</div>
+	<div class="hand vhand-compact">
+		<img cid="8C">
+		<img cid="7C">
+		<img cid="6C">
+	</div>
   </div>
   <div class="col-md-3">
 	<pre>
 &lt;div>
- &lt;ol class="hand vhand-compact">
-   &lt;li>&lt;img cid="AS">&lt;/li>
-   &lt;li>&lt;img cid="KS">&lt;/li>
-   &lt;li>&lt;img cid="QS">&lt;/li>
-   &lt;li>&lt;img cid="JS">&lt;/li>
-   &lt;li>&lt;img cid="10S">&lt;/li>
- &lt;/ol>
- &lt;ol class="hand vhand-compact">
-   &lt;li>&lt;img cid="9H">&lt;/li>
-   &lt;li>&lt;img cid="3H">&lt;/li>
- &lt;/ol>
- &lt;ol class="hand vhand-compact">
-   &lt;li>&lt;img cid="10D">&lt;/li>
-   &lt;li>&lt;img cid="4D">&lt;/li>
-   &lt;li>&lt;img cid="2D">&lt;/li>
- &lt;/ol>
- &lt;ol class="hand vhand-compact">
-   &lt;li>&lt;img cid="8C">&lt;/li>
-   &lt;li>&lt;img cid="7C">&lt;/li>
-   &lt;li>&lt;img cid="6C">&lt;/li>
- &lt;/ol>
+ &lt;div class="hand vhand-compact">
+   &lt;img cid="AS">
+   &lt;img cid="KS">
+   &lt;img cid="QS">
+   &lt;img cid="JS">
+   &lt;img cid="10S">
+ &lt;/div>
+ &lt;div class="hand vhand-compact">
+   &lt;img cid="9H">
+   &lt;img cid="3H">
+ &lt;/div>
+ &lt;div class="hand vhand-compact">
+   &lt;img cid="10D">
+   &lt;img cid="4D">
+   &lt;img cid="2D">
+ &lt;/div>
+ &lt;div class="hand vhand-compact">
+   &lt;img cid="8C">
+   &lt;img cid="7C">
+   &lt;img cid="6C">
+ &lt;/div>
 &lt;/div>
 	</pre>
 	</div>
@@ -152,39 +152,39 @@
 	player's hand.  Hovering over the card will make it jump up.
 	</p>
 	<div class="alert alert-warning" role="alert">Requires javascript for positioning and rotation.</div>
-	<ol class="hand fan">
-		<li><img cid="AS"></li>
-		<li><img cid="KS"></li>
-		<li><img cid="QS"></li>
-		<li><img cid="JS"></li>
-		<li><img cid="10S"></li>
-		<li><img cid="9H"></li>
-		<li><img cid="3H"></li>
-		<li><img cid="10D"></li>
-		<li><img cid="4D"></li>
-		<li><img cid="2D"></li>
-		<li><img cid="8C"></li>
-		<li><img cid="7C"></li>
-		<li><img cid="6C"></li>
-	</ol>
+	<div class="hand fan">
+		<img cid="AS">
+		<img cid="KS">
+		<img cid="QS">
+		<img cid="JS">
+		<img cid="10S">
+		<img cid="9H">
+		<img cid="3H">
+		<img cid="10D">
+		<img cid="4D">
+		<img cid="2D">
+		<img cid="8C">
+		<img cid="7C">
+		<img cid="6C">
+	</div>
   </div>
   <div class="col-md-3">
 	<pre>
- &lt;ol class="hand fan">
-   &lt;li>&lt;img cid="AS">&lt;/li>
-   &lt;li>&lt;img cid="KS">&lt;/li>
-   &lt;li>&lt;img cid="QS">&lt;/li>
-   &lt;li>&lt;img cid="JS">&lt;/li>
-   &lt;li>&lt;img cid="10S">&lt;/li>
-   &lt;li>&lt;img cid="9H">&lt;/li>
-   &lt;li>&lt;img cid="3H">&lt;/li>
-   &lt;li>&lt;img cid="10D">&lt;/li>
-   &lt;li>&lt;img cid="4D">&lt;/li>
-   &lt;li>&lt;img cid="2D">&lt;/li>
-   &lt;li>&lt;img cid="8C">&lt;/li>
-   &lt;li>&lt;img cid="7C">&lt;/li>
-   &lt;li>&lt;img cid="6C">&lt;/li>
- &lt;/ol>
+ &lt;div class="hand fan">
+   &lt;img cid="AS">
+   &lt;img cid="KS">
+   &lt;img cid="QS">
+   &lt;img cid="JS">
+   &lt;img cid="10S">
+   &lt;img cid="9H">
+   &lt;img cid="3H">
+   &lt;img cid="10D">
+   &lt;img cid="4D">
+   &lt;img cid="2D">
+   &lt;img cid="8C">
+   &lt;img cid="7C">
+   &lt;img cid="6C">
+ &lt;/div>
 	</pre>
 	</div>
 </div>

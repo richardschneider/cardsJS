@@ -15,8 +15,8 @@ cards = (function() {
 	  
 	  // Remove a card from the hand.
 	  remove: function(card) {
-		  var hand = card.parent().parent();
-		  card.parent().remove(); // remove the enclosing "li" element.
+		  var hand = card.parent();
+		  card.remove();
 		  
 		  // New layout if card removed from a "fan".
 		  if (hand.hasClass("fan"))
@@ -203,4 +203,4 @@ if(!Math.rotatePointInBox)
 $(document).ready(function() { cards.fan($(".fan")) });
 
 // Call cards.play, when a card is clicked.
-$( ".hand" ).on( "click", "li img[cid]", function() { cards.play($(this)) });
+$( ".hand" ).on( "click", "img[cid]", function() { cards.play($(this)) });

@@ -70,31 +70,31 @@ img[cid='red_back'] { content: url(images/red_back.svg) }
 img[cid='blue_back'] { content: url(images/blue_back.svg) }
 
 /*
- * A hand is an ordered list of cards.
- * E.g. <ol class="hand">
- *		  <li><img cid="AS"></li>
- *        <li><img cid="KS"></li>
- *      </ol>
+ * A hand is a div containing cards.
+ * E.g. <div class="hand">
+ *		  <img cid="AS">
+ *        <img cid="KS">
+ *      </div>
  */
-ol.hand {
+.hand {
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
 }
-ol.hand li img[cid] { 
+.hand img[cid] { 
 	cursor: pointer;
 }
 
 /*
  * A horizontal hand, class="hand hhand".  The enitire card is visible.
  */
-ol.hhand li {
+.hhand {
 	display: inline-block; 
 }
-ol.hhand li img[cid] { 
+.hhand img[cid] { 
 	padding-top: 10px;
 }
-ol.hhand li img[cid]:hover { 
+.hhand img[cid]:hover { 
 	padding-top: 0px;
 	padding-bottom: 10px;
 }
@@ -102,19 +102,19 @@ ol.hhand li img[cid]:hover {
 /*
  * A compact horizontal hand.  Only the last card is entirely visible.
  */
-ol.hhand-compact li { 
+.hhand-compact { 
 	display: inline-block; 
 }
-ol.hhand-compact li:first-child img[cid] { 
+.hhand-compact img[cid]:first-child { 
 	margin-left: 0px;
 	padding-top: 10px;
 	cursor: pointer;
 }
-ol.hhand-compact li img[cid] { 
+.hhand-compact img[cid] { 
 	margin-left: -52px;
 	padding-top: 10px;
 }
-ol.hhand-compact li img[cid]:hover { 
+.hhand-compact img[cid]:hover { 
 	padding-top: 0px;
 	padding-bottom: 10px;
 }
@@ -122,20 +122,23 @@ ol.hhand-compact li img[cid]:hover {
 /*
  * A compact vertical hand.  Only the last card is entirely visible.
  */
-ol.vhand-compact {
+.vhand-compact {
 	display: inline-block;
 	vertical-align: top;
 }
-ol.vhand-compact li:first-child img[cid] { 
+.vhand-compact img[cid]:first-child { 
+	display: block; 
 	margin-top: 0px;
 	padding-right: 10px;
-	cursor: pointer;
 }
-ol.vhand-compact li img[cid] { 
-	margin-top: -90px;
+.vhand-compact img[cid] 
+{
+	display: block; 
+	margin-top: -80px;
 	padding-right: 10px;
 }
-ol.vhand-compact li img[cid]:hover { 
+.vhand-compact img[cid]:hover { 
+	display: block; 
 	padding-right: 0px;
 	padding-left: 10px;
 }
@@ -143,15 +146,12 @@ ol.vhand-compact li img[cid]:hover {
 /*
  * A fanned hand.  Only the last card is entirely visible.
  */
-ol.fan {
+.fan {
 	display: inline-block;
 	vertical-align: top;
 	position: relative;
 }
-ol.fan li { 
-	display: inline-block; 
-}
-ol.fan li img[cid] { 
+.fan img[cid] { 
 	position: absolute;
 	width: 90px;
 }
