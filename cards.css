@@ -81,7 +81,7 @@ img[cid='blue_back'] { content: url(images/blue_back.svg) }
 	padding: 0;
 	margin: 0;
 }
-.hand.active-hand img[cid] { 
+.active-hand img[cid] { 
 	cursor: pointer;
 }
 
@@ -136,7 +136,8 @@ img[cid='blue_back'] { content: url(images/blue_back.svg) }
 	margin-top: -80px;
 	padding-right: 10px;
 }
-.vhand-compact.active-hand img[cid]:hover { 
+.vhand-compact.active-hand img[cid]:hover,
+.active-hand .vhand-compact img[cid]:hover { 
 	display: block; 
 	padding-right: 0px;
 	padding-left: 10px;
