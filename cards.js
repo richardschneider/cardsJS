@@ -2,9 +2,11 @@
 cards = (function () {
 
     var module = {
-        spacing: 0.20, // How much to show between cards, expressed as percentage of textureWidth
-        arc_radius: 400, // This is the radius of the circle under the fan of cards and thus controls the overall curvature of the fan. Small values means higher curvature
-        direction: "N",
+        options: {
+            spacing: 0.20,  // How much to show between cards, expressed as percentage of textureWidth
+            radius: 400,    // This is the radius of the circle under the fan of cards and thus controls the overall curvature of the fan. Small values means higher curvature
+            direction: "N"
+        },
 
         // Play is called whenever a card in an hand is clicked.  If the hand is active
         // then playCard is called.
@@ -26,7 +28,9 @@ cards = (function () {
         },
 
         fan: function (hand) {
-            fanCards(hand.find("img[cid]"), this);
+            var options = $.extend({}, this.options);
+            options = $.extend(options, readOptions(hand, 'fan'));
+            fanCards(hand.find("img[cid]"), this, options);
         },
 
         cardSetTop: function (card, top) {
@@ -37,14 +41,27 @@ cards = (function () {
     // The default is to remove the card from the hand.
     module.playCard = module.remove;
 
-    function fanCards(cards, self) {
+    // Parse the data-name attribute in HTML.
+    function readOptions($elem, name) {
+        var i, len, s, options, o = {};
+
+        options = $elem.data(name);
+        options = (options || '').replace(/\s/g, '').split(';');
+        for (i = 0, len = options.length; i < len; i++) {
+            s = options[i].split(':');
+            o[s[0]] = Number(s[1]) || s[1];
+        }
+        return o;
+    }
+
+    function fanCards(cards, self, options) {
         var n = cards.length;
         if (n == 0) return;
 
         var width = cards[0].clientWidth;
         var height = cards[0].clientHeight;
         var box = {};
-        var coords = calculateCoords(n, self.arc_radius, width, height, self.direction, self.spacing, box);
+        var coords = calculateCoords(n, options.radius, width, height, options.direction, options.spacing, box);
 
         var hand = $(cards[0]).parent();
         hand.width(box.width);
@@ -138,8 +155,8 @@ cards = (function () {
             coord.angle = Math.round(coord.angle);
         });
 
-        box.width = coords[numCards-1].x + cardWidth;
-        box.height = coords[numCards-1].y + cardHeight;
+        box.width = coords[numCards - 1].x + cardWidth;
+        box.height = coords[numCards - 1].y + cardHeight;
 
         return coords;
     }
