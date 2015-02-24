@@ -13,10 +13,10 @@ The suits are 'S', 'H', 'D' and 'C' for spades, hearts, diamonds and clubs. The 
     
 ## Hands
 
-Cards can be grouped into a hand.  A hand is an `<div class='hand'>` containing the card(s). 
-When the mouse is over a `card` in an hand, the card is moved veritically/horizontally to indicate that it will be selected.
+Cards can be grouped into a hand.  A hand is a `<div class='hand'>` containing the card(s). 
+With an active hand, `<div class='hand active-hand'>`, moving the mouse over a `card` will move it veritically/horizontally to indicate that the card will be selected.
 
-    <div class="hand hhand-compact">
+    <div class="hand hhand-compact active-hand">
 		<img cid="AS">
 		<img cid="KS">
 		<img cid="QS">
