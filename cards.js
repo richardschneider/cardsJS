@@ -58,8 +58,8 @@ cards = (function () {
         var n = cards.length;
         if (n == 0) return;
 
-        var width = cards[0].clientWidth;
-        var height = cards[0].clientHeight;
+        var width = cards[0].clientWidth || 90; // hack: for a hidden hand
+        var height = cards[0].clientHeight || 125; // hack: for a hidden hand
         var box = {};
         var coords = calculateCoords(n, options.radius, width, height, options.direction, options.spacing, box);
 
