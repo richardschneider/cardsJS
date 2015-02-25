@@ -1,5 +1,5 @@
 # cardsJS
-Showing playing cards that are scalable in a browser is possible with cardJS.  See the [web site](http://richardschneider.github.io/cardsJS) for some examples.
+Showing playing cards that are scalable in a browser is possible with cardJS.  See the [web site](http://richardschneider.github.io/cardsJS) for some examples and the [wiki](https://github.com/richardschneider/cardsJS/wiki) for documentation.
 
 I'm using the [Vectorized Playing Cards 1.3](http://code.google.com/p/vectorized-playing-cards/) designed by Chris Aguilar, see the [readme file](images/readme.txt) for the details. The original SVGs are changed to *not* render in an A4 page, but to fit to size.
 
@@ -13,10 +13,10 @@ The suits are 'S', 'H', 'D' and 'C' for spades, hearts, diamonds and clubs. The 
     
 ## Hands
 
-Cards can be grouped into a hand.  A hand is an `<div class='hand'>` containing the card(s). 
-When the mouse is over a `card` in an hand, the card is moved veritically/horizontally to indicate that it will be selected.
+Cards can be grouped into a hand.  A hand is a `<div class='hand'>` containing the card(s). 
+With an active hand, `<div class='hand active-hand'>`, moving the mouse over a `card` will move it veritically/horizontally to indicate that the card will be selected.
 
-    <div class="hand hhand-compact">
+    <div class="hand hhand-compact active-hand">
 		<img cid="AS">
 		<img cid="KS">
 		<img cid="QS">
