@@ -11,6 +11,14 @@
     <link rel="stylesheet" type="text/css" href="cards.css">
 	
     <title>Cards JS</title>
+<style type="text/css">
+.item{
+    margin-top: 4px;
+    text-align: center;
+    background: #f2f2f2;
+    height: 200px !important;
+}
+</style>
   </head>
 
   <body>
@@ -21,7 +29,7 @@
           <a id="forkme_banner" href="https://github.com/richardschneider/cardsJS">View on GitHub</a>
 
           <h1 id="project_title">Cards JS</h1>
-          <h2 id="project_tagline">Playing cards that are scalable and 3D</h2>
+          <h2 id="project_tagline">Scalable and 3D playing cards</h2>
 
             <section id="downloads">
               <a class="zip_download_link" href="https://github.com/richardschneider/cardsJS/zipball/master">Download this project as a .zip file</a>
@@ -34,7 +42,7 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h3>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to Cards JS</h3>
+<a id="welcome" class="anchor" href="#welcome" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to Cards JS</h3>
 
 <p>
 This project allows you to create beautiful pages containing the standard playing cards.  It is as simple as adding the HTML tag 
@@ -70,6 +78,74 @@ Each card is a SVG image; this allows scaling and rotation of the card image wit
 all the details.
 </p>
 
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+	  <div class="hand hhand-compact">
+		<img cid="AS">
+		<img cid="KS">
+		<img cid="QS">
+		<img cid="JS">
+		<img cid="10S">
+		<img cid="9H">
+		<img cid="3H">
+	  </div>
+    </div>
+
+    <div class="item">
+	<div class="hand vhand-compact">
+		<img cid="AS">
+		<img cid="KS">
+		<img cid="QS">
+		<img cid="JS">
+		<img cid="10S">
+	</div>
+	<div class="hand vhand-compact">
+		<img cid="9H">
+		<img cid="3H">
+	</div>
+	<div class="hand vhand-compact">
+		<img cid="10D">
+		<img cid="4D">
+		<img cid="2D">
+	</div>
+	<div class="hand vhand-compact">
+		<img cid="8C">
+		<img cid="7C">
+		<img cid="6C">
+	</div>
+    </div>
+
+    <div class="item">
+	<div class="hand fan" data-fan="radius: 100; spacing: 0.1;">
+		<img cid="AS">
+		<img cid="KS">
+		<img cid="QS">
+		<img cid="JS">
+		<img cid="10S">
+		<img cid="9H">
+		<img cid="3H">
+		<img cid="10D">
+		<img cid="4D">
+		<img cid="2D">
+		<img cid="8C">
+		<img cid="7C">
+		<img cid="6C">
+	</div>
+    </div>
+
+   </div>
+
+  </div>
+
 <h3>
 <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Need Help?</h3>
 
@@ -96,7 +172,9 @@ algorithm.<br />
       </footer>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="cards.js"></script>
     <script type="text/javascript">
         function incrementCard(cards, v) {
             if (cards.length == 0) return;
