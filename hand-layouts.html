@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-nz">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,6 +15,10 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <style type="text/css">
+        pre { font-size: 80%; }
+    </style>
   </head>
   <body>
 	<div class="container-fluid">
@@ -23,7 +27,7 @@
       <div class="container">
         <h1>Hand Layouts</h1>
         <p>Cards can be grouped into a hand. A hand is a <code>&lt;div class='hand'></code> containing the cards 
-        (<code>&lt;img cid=".."></code>). 
+        (<code>&lt;img class='card' src='cards/..'></code>). 
         When the mouse is over an active hand's card, the card is moved veritically or horizontally to indicate that it 
         will be selected. Use <code>class="active-hand"</code> to make a hand active.
         </p>
@@ -35,24 +39,24 @@
   <div class="col-md-6">
 	<p>A simple horizontal layout of a hand.  Every card is completely visible. Hovering over the card will make it jump up.</p>
     <div class="hand hhand active-hand">
-		<img cid="AS">
-		<img cid="KS">
-		<img cid="QS">
-		<img cid="JS">
-		<img cid="10S">
-		<img cid="9H">
-		<img cid="3H">
+		<img class='card' src='cards/AS.svg'>
+		<img class='card' src='cards/KS.svg'>
+		<img class='card' src='cards/QS.svg'>
+		<img class='card' src='cards/JS.svg'>
+		<img class='card' src='cards/10S.svg'>
+		<img class='card' src='cards/9H.svg'>
+		<img class='card' src='cards/3H.svg'>
 	</div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-4">
 	<pre><code>&lt;div class="hand hhand">
-  &lt;img cid="AS">
-  &lt;img cid="KS">
-  &lt;img cid="QS">
-  &lt;img cid="JS">
-  &lt;img cid="10S">
-  &lt;img cid="9H">
-  &lt;img cid="3H">
+  &lt;img class='card' src='cards/AS.svg'>
+  &lt;img class='card' src='cards/KS.svg'>
+  &lt;img class='card' src='cards/QS.svg'>
+  &lt;img class='card' src='cards/JS.svg'>
+  &lt;img class='card' src='cards/10S.svg'>
+  &lt;img class='card' src='cards/9H.svg'>
+  &lt;img class='card' src='cards/3H.svg'>
 &lt;/div></code></pre>
 	</div>
 </div>
@@ -62,27 +66,26 @@
   <div class="col-md-6">
 	<p>A horizontal layout where cards are overlapped. Hovering over the card will make it jump up.</p>
 	<div class="hand hhand-compact active-hand">
-		<img cid="AS">
-		<img cid="KS">
-		<img cid="QS">
-		<img cid="JS">
-		<img cid="10S">
-		<img cid="9H">
-		<img cid="3H">
+		<img class='card' src='cards/AS.svg'>
+		<img class='card' src='cards/KS.svg'>
+		<img class='card' src='cards/QS.svg'>
+		<img class='card' src='cards/JS.svg'>
+		<img class='card' src='cards/10S.svg'>
+		<img class='card' src='cards/9H.svg'>
+		<img class='card' src='cards/3H.svg'>
 	</div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-4">
 	<pre>
 &lt;div class="hand hhand-compact">
-  &lt;img cid="AS">
-  &lt;img cid="KS">
-  &lt;img cid="QS">
-  &lt;img cid="JS">
-  &lt;img cid="10S">
-  &lt;img cid="9H">
-  &lt;img cid="3H">
-&lt;/div>
-	</pre>
+  &lt;img class='card' src='cards/AS.svg'>
+  &lt;img class='card' src='cards/KS.svg'>
+  &lt;img class='card' src='cards/QS.svg'>
+  &lt;img class='card' src='cards/JS.svg'>
+  &lt;img class='card' src='cards/10S.svg'>
+  &lt;img class='card' src='cards/9H.svg'>
+  &lt;img class='card' src='cards/3H.svg'>
+&lt;/div></pre>
 	</div>
 </div>
 	
@@ -95,58 +98,57 @@
 	</p>
     <div class="active-hand">
 	<div class="hand vhand-compact">
-		<img cid="AS">
-		<img cid="KS">
-		<img cid="QS">
-		<img cid="JS">
-		<img cid="10S">
+		<img class='card' src='cards/AS.svg'>
+		<img class='card' src='cards/KS.svg'>
+		<img class='card' src='cards/QS.svg'>
+		<img class='card' src='cards/JS.svg'>
+		<img class='card' src='cards/10S.svg'>
 	</div>
 	<div class="hand vhand-compact">
-		<img cid="9H">
-		<img cid="3H">
+		<img class='card' src='cards/9H.svg'>
+		<img class='card' src='cards/3H.svg'>
 	</div>
 	<div class="hand vhand-compact">
-		<img cid="10D">
-		<img cid="4D">
-		<img cid="2D">
+		<img class='card' src='cards/10D.svg'>
+		<img class='card' src='cards/4D.svg'>
+		<img class='card' src='cards/2D.svg'>
 	</div>
 	<div class="hand vhand-compact">
-		<img cid="8C">
-		<img cid="7C">
-		<img cid="6C">
+		<img class='card' src='cards/8C.svg'>
+		<img class='card' src='cards/7C.svg'>
+		<img class='card' src='cards/6C.svg'>
 	</div>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-4">
 	<pre>
 &lt;div>
  &lt;div class="hand vhand-compact">
-   &lt;img cid="AS">
-   &lt;img cid="KS">
-   &lt;img cid="QS">
-   &lt;img cid="JS">
-   &lt;img cid="10S">
+   &lt;img class='card' src='cards/AS.svg'>
+   &lt;img class='card' src='cards/KS.svg'>
+   &lt;img class='card' src='cards/QS.svg'>
+   &lt;img class='card' src='cards/JS.svg'>
+   &lt;img class='card' src='cards/10S.svg'>
  &lt;/div>
  &lt;div class="hand vhand-compact">
-   &lt;img cid="9H">
-   &lt;img cid="3H">
+   &lt;img class='card' src='cards/9H.svg'>
+   &lt;img class='card' src='cards/3H.svg'>
  &lt;/div>
  &lt;div class="hand vhand-compact">
-   &lt;img cid="10D">
-   &lt;img cid="4D">
-   &lt;img cid="2D">
+   &lt;img class='card' src='cards/10D.svg'>
+   &lt;img class='card' src='cards/4D.svg'>
+   &lt;img class='card' src='cards/2D.svg'>
  &lt;/div>
  &lt;div class="hand vhand-compact">
-   &lt;img cid="8C">
-   &lt;img cid="7C">
-   &lt;img cid="6C">
+   &lt;img class='card' src='cards/8C.svg'>
+   &lt;img class='card' src='cards/7C.svg'>
+   &lt;img class='card' src='cards/6C.svg'>
  &lt;/div>
-&lt;/div>
-	</pre>
+&lt;/div></pre>
 	</div>
 </div>
 
-	<h2>Fan hand</h1>
+	<h2>Fan hand</h2>
 <div class="row">
   <div class="col-md-6">
 	<p>
@@ -154,40 +156,39 @@
 	player's hand.  Hovering over the card will make it jump up.
 	</p>
 	<div class="hand fan active-hand">
-		<img cid="AS">
-		<img cid="KS">
-		<img cid="QS">
-		<img cid="JS">
-		<img cid="10S">
-		<img cid="9H">
-		<img cid="3H">
-		<img cid="10D">
-		<img cid="4D">
-		<img cid="2D">
-		<img cid="8C">
-		<img cid="7C">
-		<img cid="6C">
+		<img class='card' src='cards/AS.svg'>
+		<img class='card' src='cards/KS.svg'>
+		<img class='card' src='cards/QS.svg'>
+		<img class='card' src='cards/JS.svg'>
+		<img class='card' src='cards/10S.svg'>
+		<img class='card' src='cards/9H.svg'>
+		<img class='card' src='cards/3H.svg'>
+		<img class='card' src='cards/10D.svg'>
+		<img class='card' src='cards/4D.svg'>
+		<img class='card' src='cards/2D.svg'>
+		<img class='card' src='cards/8C.svg'>
+		<img class='card' src='cards/7C.svg'>
+		<img class='card' src='cards/6C.svg'>
 	</div>
 	<div class="alert alert-warning" role="alert">Requires javascript for positioning and rotation.</div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-4">
 	<pre>
  &lt;div class="hand fan">
-   &lt;img cid="AS">
-   &lt;img cid="KS">
-   &lt;img cid="QS">
-   &lt;img cid="JS">
-   &lt;img cid="10S">
-   &lt;img cid="9H">
-   &lt;img cid="3H">
-   &lt;img cid="10D">
-   &lt;img cid="4D">
-   &lt;img cid="2D">
-   &lt;img cid="8C">
-   &lt;img cid="7C">
-   &lt;img cid="6C">
- &lt;/div>
-	</pre>
+   &lt;img class='card' src='cards/AS.svg'>
+   &lt;img class='card' src='cards/KS.svg'>
+   &lt;img class='card' src='cards/QS.svg'>
+   &lt;img class='card' src='cards/JS.svg'>
+   &lt;img class='card' src='cards/10S.svg'>
+   &lt;img class='card' src='cards/9H.svg'>
+   &lt;img class='card' src='cards/3H.svg'>
+   &lt;img class='card' src='cards/10D.svg'>
+   &lt;img class='card' src='cards/4D.svg'>
+   &lt;img class='card' src='cards/2D.svg'>
+   &lt;img class='card' src='cards/8C.svg'>
+   &lt;img class='card' src='cards/7C.svg'>
+   &lt;img class='card' src='cards/6C.svg'>
+ &lt;/div></pre>
 	</div>
 </div>
 

@@ -12,7 +12,6 @@ cards = (function () {
         // then playCard is called.
         play: function (card) {
             if (card.parents(".active-hand").length > 0) {
-                console.log(card.attr("cid") + " played");
                 this.playCard(card);
             }
         },
@@ -30,7 +29,7 @@ cards = (function () {
         fan: function (hand) {
             var options = $.extend({}, this.options);
             options = $.extend(options, readOptions(hand, 'fan'));
-            fanCards(hand.find("img[cid]"), this, options);
+            fanCards(hand.find("img.card"), this, options);
         },
 
         cardSetTop: function (card, top) {
@@ -226,4 +225,4 @@ if(!Math.rotatePointInBox)
 $(window).load(function() { cards.fan($(".fan")) });
 
 // Call cards.play, when a card is clicked in an active hand.
-$(".hand").on("click", "img[cid]", function () { cards.play($(this)) });
+$(".hand").on("click", "img.card", function () { cards.play($(this)) });

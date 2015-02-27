@@ -1,29 +1,30 @@
 # cardsJS
 Showing playing cards that are scalable in a browser is possible with cardJS.  See the [web site](http://richardschneider.github.io/cardsJS) for some examples and the [wiki](https://github.com/richardschneider/cardsJS/wiki) for documentation.
 
-I'm using the [Vectorized Playing Cards 1.3](http://code.google.com/p/vectorized-playing-cards/) designed by Chris Aguilar, see the [readme file](images/readme.txt) for the details. The original SVGs are changed to *not* render in an A4 page, but to fit to size.
+I'm using the [Vectorized Playing Cards 1.3](http://code.google.com/p/vectorized-playing-cards/) designed by Chris Aguilar, see the [readme file](cards/readme.txt) for the details. The original SVGs are changed to *not* render in an A4 page, but to fit to size.
 
 ## Cards
 
-Use an `<img cid='id'>` HTML tag; where *id* is the identifier of the card.  The *id* is composed of the rank and then the suit of the card,
-e.g. 'KS' is the [King of spades](https://rawgit.com/richardschneider/cardsJS/master/images/KS.svg). 
+Use the `<img class='card' src='cards/id.svg'>` HTML tag; where *id* is the identifier of the card.  The *id* is composed of the rank and then the suit of the card,
+e.g. 'KS' is the [King of spades](https://rawgit.com/richardschneider/cardsJS/master/cards/KS.svg). 
 The suits are 'S', 'H', 'D' and 'C' for spades, hearts, diamonds and clubs. The rank '10' of a suit *x* is either '10*x*' or 'T*x*'.
 
-    The king of spades is rendered as <img cid='KS'/>.
+    The king of spades is rendered as <img class='card' src='cards/KS.svg'>.
     
 ## Hands
 
 Cards can be grouped into a hand.  A hand is a `<div class='hand'>` containing the card(s). 
-With an active hand, `<div class='hand active-hand'>`, moving the mouse over a `card` will move it veritically/horizontally to indicate that the card will be selected.
+With an active hand, `<div class='hand active-hand'>`, moving the mouse over a `card` will move it veritically/horizontally 
+to indicate that the card will be selected.
 
     <div class="hand hhand-compact active-hand">
-		<img cid="AS">
-		<img cid="KS">
-		<img cid="QS">
-		<img cid="JS">
-		<img cid="10S">
-		<img cid="9H">
-		<img cid="3H">
+		<img class='card' src='cards/AS.svg'>
+		<img class='card' src='cards/KS.svg'>
+		<img class='card' src='cards/QS.svg'>
+		<img class='card' src='cards/JS.svg'>
+		<img class='card' src='cards/10S.svg'>
+		<img class='card' src='cards/9H.svg'>
+		<img class='card' src='cards/3H.svg'>
 	</div>
 	
 # Hello world
@@ -36,7 +37,7 @@ With an active hand, `<div class='hand active-hand'>`, moving the mouse over a `
   </head>
   <body>
   <p>
-    The king of spades is rendered as <img cid='KS'/>.
+    The king of spades is rendered as <img class='card' src='cards/KS.svg'>.
   </p>
 	
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

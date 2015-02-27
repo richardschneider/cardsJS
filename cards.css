@@ -1,4 +1,4 @@
-img[cid] {
+img.card {
 	width: 70px;
 	margin: 0;
 	padding: 0;
@@ -6,81 +6,15 @@ img[cid] {
 	vertical-align: initial;
 	box-sizing: initial;
 }
-/*
- *  To show a card, simply use <img> with the cid (card id) attribute.
- *  E.g. <img cid='AS'/>
- */
-img[cid='AS'] { content: url(images/AS.svg) }
-img[cid='2S'] { content: url(images/2S.svg) }
-img[cid='3S'] { content: url(images/3S.svg) }
-img[cid='4S'] { content: url(images/4S.svg) }
-img[cid='5S'] { content: url(images/5S.svg) }
-img[cid='6S'] { content: url(images/6S.svg) }
-img[cid='7S'] { content: url(images/7S.svg) }
-img[cid='8S'] { content: url(images/8S.svg) }
-img[cid='9S'] { content: url(images/9S.svg) }
-img[cid='TS'] { content: url(images/10S.svg) }
-img[cid='10S'] { content: url(images/10S.svg) }
-img[cid='JS'] { content: url(images/JS.svg) }
-img[cid='QS'] { content: url(images/QS.svg) }
-img[cid='KS'] { content: url(images/KS.svg) }
-img[cid='AH'] { content: url(images/AH.svg) }
-img[cid='2H'] { content: url(images/2H.svg) }
-img[cid='3H'] { content: url(images/3H.svg) }
-img[cid='4H'] { content: url(images/4H.svg) }
-img[cid='5H'] { content: url(images/5H.svg) }
-img[cid='6H'] { content: url(images/6H.svg) }
-img[cid='7H'] { content: url(images/7H.svg) }
-img[cid='8H'] { content: url(images/8H.svg) }
-img[cid='9H'] { content: url(images/9H.svg) }
-img[cid='TH'] { content: url(images/10H.svg) }
-img[cid='10H'] { content: url(images/10H.svg) }
-img[cid='JH'] { content: url(images/JH.svg) }
-img[cid='QH'] { content: url(images/QH.svg) }
-img[cid='KH'] { content: url(images/KH.svg) }
-img[cid='AD'] { content: url(images/AD.svg) }
-img[cid='2D'] { content: url(images/2D.svg) }
-img[cid='3D'] { content: url(images/3D.svg) }
-img[cid='4D'] { content: url(images/4D.svg) }
-img[cid='5D'] { content: url(images/5D.svg) }
-img[cid='6D'] { content: url(images/6D.svg) }
-img[cid='7D'] { content: url(images/7D.svg) }
-img[cid='8D'] { content: url(images/8D.svg) }
-img[cid='9D'] { content: url(images/9D.svg) }
-img[cid='TD'] { content: url(images/10D.svg) }
-img[cid='10D'] { content: url(images/10D.svg) }
-img[cid='JD'] { content: url(images/JD.svg) }
-img[cid='QD'] { content: url(images/QD.svg) }
-img[cid='KD'] { content: url(images/KD.svg) }
-img[cid='AC'] { content: url(images/AC.svg) }
-img[cid='2C'] { content: url(images/2C.svg) }
-img[cid='3C'] { content: url(images/3C.svg) }
-img[cid='4C'] { content: url(images/4C.svg) }
-img[cid='5C'] { content: url(images/5C.svg) }
-img[cid='6C'] { content: url(images/6C.svg) }
-img[cid='7C'] { content: url(images/7C.svg) }
-img[cid='8C'] { content: url(images/8C.svg) }
-img[cid='9C'] { content: url(images/9C.svg) }
-img[cid='TC'] { content: url(images/10C.svg) }
-img[cid='10C'] { content: url(images/10C.svg) }
-img[cid='JC'] { content: url(images/JC.svg) }
-img[cid='QC'] { content: url(images/QC.svg) }
-img[cid='KC'] { content: url(images/KC.svg) }
-img[cid='red_back'] { content: url(images/red_back.svg) }
-img[cid='blue_back'] { content: url(images/blue_back.svg) }
 
 /*
  * A hand is a div containing cards.
- * E.g. <div class="hand">
- *		  <img cid="AS">
- *        <img cid="KS">
- *      </div>
  */
 .hand {
 	padding: 0;
 	margin: 0;
 }
-.active-hand img[cid] { 
+.active-hand img.card { 
 	cursor: pointer;
 }
 
@@ -90,10 +24,10 @@ img[cid='blue_back'] { content: url(images/blue_back.svg) }
 .hhand {
 	display: inline-block; 
 }
-.hhand img[cid] { 
+.hhand img.card { 
 	padding-top: 10px;
 }
-.hhand.active-hand img[cid]:hover { 
+.hhand.active-hand img.card:hover { 
 	padding-top: 0px;
 	padding-bottom: 10px;
 }
@@ -104,15 +38,15 @@ img[cid='blue_back'] { content: url(images/blue_back.svg) }
 .hhand-compact { 
 	display: inline-block; 
 }
-.hhand-compact img[cid]:first-child { 
+.hhand-compact img.card:first-child { 
 	margin-left: 0px;
 	padding-top: 10px;
 }
-.hhand-compact img[cid] { 
+.hhand-compact img.card { 
 	margin-left: -52px;
 	padding-top: 10px;
 }
-.hhand-compact.active-hand img[cid]:hover { 
+.hhand-compact.active-hand img.card:hover { 
 	padding-top: 0px;
 	padding-bottom: 10px;
 }
@@ -124,19 +58,19 @@ img[cid='blue_back'] { content: url(images/blue_back.svg) }
 	display: inline-block;
 	vertical-align: top;
 }
-.vhand-compact img[cid]:first-child { 
+.vhand-compact img.card:first-child { 
 	display: block; 
 	margin-top: 0px;
 	padding-right: 10px;
 }
-.vhand-compact img[cid] 
+.vhand-compact img.card 
 {
 	display: block; 
 	margin-top: -80px;
 	padding-right: 10px;
 }
-.vhand-compact.active-hand img[cid]:hover,
-.active-hand .vhand-compact img[cid]:hover { 
+.vhand-compact.active-hand img.card:hover,
+.active-hand .vhand-compact img.card:hover { 
 	display: block; 
 	padding-right: 0px;
 	padding-left: 10px;
@@ -151,7 +85,7 @@ img[cid='blue_back'] { content: url(images/blue_back.svg) }
 	position: relative;
 	padding-bottom: 1em;
 }
-.fan img[cid] { 
+.fan img.card { 
 	position: absolute;
 	width: 90px;
 }
