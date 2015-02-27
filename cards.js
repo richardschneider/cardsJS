@@ -8,6 +8,12 @@ cards = (function () {
             direction: "N"
         },
 
+        // Gets the ID of the card, e.g. "KS" for the king of spades.
+        cid: function (card) {
+            var s = card.attr('src');
+            return s.substring(s.length - 6, s.length - 4);
+        },
+
         // Play is called whenever a card in an hand is clicked.  If the hand is active
         // then playCard is called.
         play: function (card) {
