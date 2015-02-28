@@ -32,9 +32,12 @@ cards = (function () {
                 this.fan(hand);
         },
 
-        fan: function (hand) {
+        fan: function (hand, cfg) {
             var options = $.extend({}, this.options);
             options = $.extend(options, readOptions(hand, 'fan'));
+            if (cfg) options = $.extend(options, cfg);
+
+            hand.data("fan", 'radius: ' + options.radius + '; spacing: ' + options.spacing);
             fanCards(hand.find("img.card"), this, options);
         },
 
@@ -62,6 +65,7 @@ cards = (function () {
     function fanCards(cards, self, options) {
         var n = cards.length;
         if (n == 0) return;
+
 
         var width = cards[0].clientWidth || 90; // hack: for a hidden hand
         var height = cards[0].clientHeight || 125; // hack: for a hidden hand
@@ -227,8 +231,8 @@ if(!Math.rotatePointInBox)
     };
 }
 
-// When the document is ready, then adjust the cards in a fan.
-$(window).load(function() { cards.fan($(".fan")) });
+// When the document is ready, then adjust the cards in a fan, except ones using KO.
+$(window).load(function() { cards.fan($(".fan:not([data-bind])")) });
 
 // Call cards.play, when a card is clicked in an active hand.
 $(".hand").on("click", "img.card", function () { cards.play($(this)) });
