@@ -272,7 +272,10 @@ if(!Math.rotatePointInBox)
 }
 
 // When the document is ready, then adjust the cards in a fan, except ones using KO.
-$(window).load(function() { cards.fan($(".fan:not([data-bind])")) });
+$(window).load(function () {
+    cards.fan($(".fan:not([data-bind])"));
+    cards.hand($(".hand[data-hand]"));
+});
 
 // Call cards.play, when a card is clicked in an active hand.
 $(".hand").on("click", "img.card", function () { cards.play($(this)) });
