@@ -58,7 +58,7 @@
                         A 3D look and feel to hand. Each card is rotated and overlapped. Suitable for displaying
                         the player's hand. Hovering over the card will make it jump up.
                     </p>
-                    <div class="hand active-hand" data-bind="fan: {spacing: spacing, radius: radius}">
+                    <div class="hand active-hand" data-bind="fan: {spacing: spacing, radius: radius, width: width}">
                         <img class='card' src='cards/AS.svg'>
                         <img class='card' src='cards/KS.svg'>
                         <img class='card' src='cards/QS.svg'>
@@ -88,6 +88,13 @@
                         <input type="text" class="option" data-bind="value: spacing" />
                         <input type="text" class="slider form-control" data-bind="sliderValue: {value: spacing, min: 0, max: 1, step: 0.01, selection: 'none', formatter: function(v) { return (v * 10) / 10;} }" />
                     </div>
+                    <p>
+                        The <code>width</code> is the pixel width of the card image.  The height is automatically calculated
+                        to maintain the aspect ratio.</p>
+                    <div class="option">
+                        <input type="text" class="option" data-bind="value: width" />
+                        <input type="text" class="slider form-control" data-bind="sliderValue: {value: width, min: 0, max: 300, step: 1, selection: 'none'}" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -100,7 +107,7 @@
                     <p>
                         A horizontal or vertical layout where cards can overlap. Hovering over the card will make
                         it jump.</p>
-                    <div class="hand hhand-compact active-hand">
+                    <div class="hand active-hand" data-bind="hand: {spacing: spacing, flow: flow, width: width}">
                         <img class='card' src='cards/AS.svg'>
                         <img class='card' src='cards/KS.svg'>
                         <img class='card' src='cards/QS.svg'>
@@ -117,15 +124,14 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-	                <div class="alert alert-warning" role="alert">These options are not yet implemented.</div>
                     <p>
-                        The <code>direction</code> determines the flow of the cards (left to right or top to bottom).</p>
+                        The <code>flow</code> determines the direction of the cards (left to right or top to bottom).</p>
                     <div class="btn-group option">
-                        <label class="btn btn-default btn-sm" data-bind="css: { 'active': direction() === 'horizontal' }">
-                            <input type="radio" data-bind="checked: direction, checkedValue: 'horizontal'">Horizontal
+                        <label class="btn btn-default btn-sm" data-bind="css: { 'active': flow() === 'horizontal' }">
+                            <input type="radio" data-bind="checked: flow, checkedValue: 'horizontal'">Horizontal
                         </label>
-                        <label class="btn btn-default btn-sm" data-bind="css: { 'active': direction() === 'vertical' }">
-                            <input type="radio" data-bind="checked: direction, checkedValue: 'vertical'">Vertical
+                        <label class="btn btn-default btn-sm" data-bind="css: { 'active': flow() === 'vertical' }">
+                            <input type="radio" data-bind="checked: flow, checkedValue: 'vertical'">Vertical
                         </label>
                     </div>
 
@@ -135,6 +141,14 @@
                     <div class="option">
                         <input type="text" class="option" data-bind="value: spacing" />
                         <input type="text" class="slider form-control" data-bind="sliderValue: {value: spacing, min: 0, max: 1, step: 0.01, selection: 'none', formatter: function(v) { return (v * 10) / 10;} }" />
+                    </div>
+
+                    <p>
+                        The <code>width</code> is the pixel width of the card image.  The height is automatically calculated
+                        to maintain the aspect ratio.</p>
+                    <div class="option">
+                        <input type="text" class="option" data-bind="value: width" />
+                        <input type="text" class="slider form-control" data-bind="sliderValue: {value: width, min: 0, max: 300, step: 1, selection: 'none'}" />
                     </div>
                 </div>
 
@@ -155,7 +169,8 @@
                     radius: ko.observable(80),
                     spacing: ko.observable(0.1),
                     layout: ko.observable('fan'),
-                    direction: ko.observable('horizontal'),
+                    flow: ko.observable('horizontal'),
+                    width: ko.observable(90),
                     fixed: function (v) {
                         return (v * 10) / 10;
                     }

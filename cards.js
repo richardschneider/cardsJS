@@ -5,7 +5,8 @@ cards = (function () {
         options: {
             spacing: 0.20,  // How much to show between cards, expressed as percentage of textureWidth
             radius: 400,    // This is the radius of the circle under the fan of cards and thus controls the overall curvature of the fan. Small values means higher curvature
-            direction: "N"
+            flow: 'horizontal', // The layout direction (horizontal or vertical)
+            fanDirection: "N"
         },
 
         // Gets the ID of the card, e.g. "KS" for the king of spades.
@@ -38,7 +39,46 @@ cards = (function () {
             if (cfg) options = $.extend(options, cfg);
 
             hand.data("fan", 'radius: ' + options.radius + '; spacing: ' + options.spacing);
-            fanCards(hand.find("img.card"), this, options);
+
+            var cards = hand.find("img.card");
+            if (cards.length == 0) return;
+            if (options.width) {
+                cards.width(options.width);
+            }
+            fanCards(cards, this, options);
+        },
+
+        hand: function ($hand, cfg) {
+            var options = $.extend({}, this.options);
+            options = $.extend(options, readOptions($hand, 'hand'));
+            if (cfg) options = $.extend(options, cfg);
+
+            $hand.data("hand", 'flow: ' + options.direction + ';');
+            $hand.removeClass('hhand fan hhand vhand vhand-compact hhand-compact');
+            if (options.flow == 'vertical' && options.spacing >= 1.0) {
+                $hand.addClass('vhand');
+            } else if (options.flow == 'horizontal' && options.spacing >= 1.0) {
+                $hand.addClass('hhand');
+            } else if (options.flow == 'vertical') {
+                $hand.addClass('vhand-compact');
+            } else {
+                $hand.addClass('hhand-compact');
+            }
+
+            var cards = $hand.find('img.card');
+            if (cards.length == 0) return;
+            if (options.width) {
+                cards.width(options.width);
+            }
+            var width = cards[0].clientWidth || options.width || 70; // hack: for a hidden hand
+            var height = cards[0].clientHeight || 125; // hack: for a hidden hand
+            if (options.flow == 'vertical' && options.spacing < 1.0) {
+                cards.slice(1).css('margin-top', -height * (1.0 - options.spacing));
+                cards.slice(1).css('margin-left', 0);
+            } else if (options.flow == 'horizontal' && options.spacing < 1.0) {
+                cards.slice(1).css('margin-left', -width * (1.0 - options.spacing));
+                cards.slice(1).css('margin-top', 0);
+            }
         },
 
         cardSetTop: function (card, top) {
@@ -70,7 +110,7 @@ cards = (function () {
         var width = cards[0].clientWidth || 90; // hack: for a hidden hand
         var height = cards[0].clientHeight || 125; // hack: for a hidden hand
         var box = {};
-        var coords = calculateCoords(n, options.radius, width, height, options.direction, options.spacing, box);
+        var coords = calculateCoords(n, options.radius, width, height, options.fanDirection, options.spacing, box);
 
         var hand = $(cards[0]).parent();
         hand.width(box.width);

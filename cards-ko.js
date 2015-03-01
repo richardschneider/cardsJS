@@ -5,6 +5,7 @@ ko.bindingHandlers.fan = {
     init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
         $(element).addClass('fan');
     },
+    
     update: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
         var params = valueAccessor();
         var options = {};
@@ -14,3 +15,16 @@ ko.bindingHandlers.fan = {
         cards.fan($(element), options);
     }
 };
+
+ko.bindingHandlers.hand = {
+
+    update: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
+        var params = valueAccessor();
+        var options = {};
+        for (var p in params) {
+            options[p] = ko.unwrap(params[p]);
+        }
+        cards.hand($(element), options);
+    }
+};
+

@@ -33,6 +33,20 @@ img.card {
 }
 
 /*
+ * A vertical hand, class="hand vhand".  The enitire card is visible.
+ */
+.vhand {
+	display: block; 
+}
+.vhand img.card { 
+	padding-right: 10px;
+}
+.vhand.active-hand img.card:hover { 
+	padding-right: 0px;
+	padding-left: 10px;
+}
+
+/*
  * A compact horizontal hand.  Only the last card is entirely visible.
  */
 .hhand-compact { 
