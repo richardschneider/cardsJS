@@ -58,20 +58,7 @@
                         A 3D look and feel to hand. Each card is rotated and overlapped. Suitable for displaying
                         the player's hand. Hovering over the card will make it jump up.
                     </p>
-                    <div class="hand active-hand" data-bind="fan: {spacing: spacing, radius: radius, width: width}">
-                        <img class='card' src='cards/AS.svg'>
-                        <img class='card' src='cards/KS.svg'>
-                        <img class='card' src='cards/QS.svg'>
-                        <img class='card' src='cards/JS.svg'>
-                        <img class='card' src='cards/10S.svg'>
-                        <img class='card' src='cards/9H.svg'>
-                        <img class='card' src='cards/3H.svg'>
-                        <img class='card' src='cards/10D.svg'>
-                        <img class='card' src='cards/4D.svg'>
-                        <img class='card' src='cards/2D.svg'>
-                        <img class='card' src='cards/8C.svg'>
-                        <img class='card' src='cards/7C.svg'>
-                        <img class='card' src='cards/6C.svg'>
+                    <div class="hand active-hand" id="fan-cards" data-bind="fan: {spacing: spacing, radius: radius, width: width, cards: cards}">
                     </div>
                 </div>
                 <div class="col-md-4" id='options'>
@@ -107,20 +94,7 @@
                     <p>
                         A horizontal or vertical layout where cards can overlap. Hovering over the card will make
                         it jump.</p>
-                    <div class="hand active-hand" data-bind="hand: {spacing: spacing, flow: flow, width: width}">
-                        <img class='card' src='cards/AS.svg'>
-                        <img class='card' src='cards/KS.svg'>
-                        <img class='card' src='cards/QS.svg'>
-                        <img class='card' src='cards/JS.svg'>
-                        <img class='card' src='cards/10S.svg'>
-                        <img class='card' src='cards/9H.svg'>
-                        <img class='card' src='cards/3H.svg'>
-                        <img class='card' src='cards/10D.svg'>
-                        <img class='card' src='cards/4D.svg'>
-                        <img class='card' src='cards/2D.svg'>
-                        <img class='card' src='cards/8C.svg'>
-                        <img class='card' src='cards/7C.svg'>
-                        <img class='card' src='cards/6C.svg'>
+                    <div class="hand active-hand" data-bind="hand: {spacing: spacing, flow: flow, width: width, cards: cards}">
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -171,6 +145,7 @@
                     layout: ko.observable('fan'),
                     flow: ko.observable('horizontal'),
                     width: ko.observable(90),
+                    cards: ko.observable("AS KS QS JS 10S 9H 3H 2H 10D 4D 8C 7C 6C"),
                     fixed: function (v) {
                         return (v * 10) / 10;
                     }

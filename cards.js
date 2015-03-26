@@ -1,12 +1,16 @@
+/*jslint vars: true, plusplus: true */
+/*global ko, $, cards */
+'use strict';
 
-cards = (function () {
+var cards = (function () {
 
     var module = {
         options: {
             spacing: 0.20,  // How much to show between cards, expressed as percentage of textureWidth
             radius: 400,    // This is the radius of the circle under the fan of cards and thus controls the overall curvature of the fan. Small values means higher curvature
             flow: 'horizontal', // The layout direction (horizontal or vertical)
-            fanDirection: "N"
+            fanDirection: "N",
+            imagesUrl: 'cards/' // The base URL for the card images, should end with a '/'.
         },
 
         // Gets the ID of the card, e.g. "KS" for the king of spades.
@@ -29,19 +33,26 @@ cards = (function () {
             card.remove();
 
             // New layout if card removed from a "fan".
-            if (hand.hasClass("fan"))
+            if (hand.hasClass("fan")) {
                 this.fan(hand);
+            }
         },
 
         fan: function (hand, cfg) {
-            var options = $.extend({}, this.options);
+            var options = $.extend({}, this.options),
+                cards;
+
             options = $.extend(options, readOptions(hand, 'fan'));
-            if (cfg) options = $.extend(options, cfg);
-
+            if (cfg) {
+                options = $.extend(options, cfg);
+            }
             hand.data("fan", 'radius: ' + options.radius + '; spacing: ' + options.spacing);
+            addCardImages(hand, options.cards);
 
-            var cards = hand.find("img.card");
-            if (cards.length == 0) return;
+            cards = hand.find("img.card");
+            if (cards.length === 0) {
+                return;
+            }
             if (options.width) {
                 cards.width(options.width);
             }
@@ -49,33 +60,41 @@ cards = (function () {
         },
 
         hand: function ($hand, cfg) {
-            var options = $.extend({}, this.options);
+            var options = $.extend({}, this.options),
+                cards,
+                width,
+                height;
             options = $.extend(options, readOptions($hand, 'hand'));
-            if (cfg) options = $.extend(options, cfg);
-
+            if (cfg) {
+                options = $.extend(options, cfg);
+            }
             $hand.data("hand", 'flow: ' + options.direction + ';');
             $hand.removeClass('hhand fan hhand vhand vhand-compact hhand-compact');
-            if (options.flow == 'vertical' && options.spacing >= 1.0) {
+            if (options.flow === 'vertical' && options.spacing >= 1.0) {
                 $hand.addClass('vhand');
-            } else if (options.flow == 'horizontal' && options.spacing >= 1.0) {
+            } else if (options.flow === 'horizontal' && options.spacing >= 1.0) {
                 $hand.addClass('hhand');
-            } else if (options.flow == 'vertical') {
+            } else if (options.flow === 'vertical') {
                 $hand.addClass('vhand-compact');
             } else {
                 $hand.addClass('hhand-compact');
             }
 
-            var cards = $hand.find('img.card');
-            if (cards.length == 0) return;
+            addCardImages($hand, options.cards);
+
+            cards = $hand.find('img.card');
+            if (cards.length === 0) {
+                return;
+            }
             if (options.width) {
                 cards.width(options.width);
             }
-            var width = cards[0].clientWidth || options.width || 70; // hack: for a hidden hand
-            var height = cards[0].clientHeight || 125; // hack: for a hidden hand
-            if (options.flow == 'vertical' && options.spacing < 1.0) {
+            width = cards[0].clientWidth || options.width || 70; // hack: for a hidden hand
+            height = cards[0].clientHeight || 125; // hack: for a hidden hand
+            if (options.flow === 'vertical' && options.spacing < 1.0) {
                 cards.slice(1).css('margin-top', -height * (1.0 - options.spacing));
                 cards.slice(1).css('margin-left', 0);
-            } else if (options.flow == 'horizontal' && options.spacing < 1.0) {
+            } else if (options.flow === 'horizontal' && options.spacing < 1.0) {
                 cards.slice(1).css('margin-left', -width * (1.0 - options.spacing));
                 cards.slice(1).css('margin-top', 0);
             }
@@ -83,11 +102,43 @@ cards = (function () {
 
         cardSetTop: function (card, top) {
             card.style.top = top + "px";
+        },
+
+        cardNames: function (cards) {
+            var i,
+                name,
+                names = [];
+            if (typeof cards === 'string') {
+                cards = cards.split(' ');
+            }
+            // Normalise the card names.
+            for (i = 0; i < cards.length; ++i) {
+                if (cards[i]) {
+                    name = cards[i].toUpperCase();
+                    names.push(name);
+                }
+            }
+
+            return names;
         }
     };
 
     // The default is to remove the card from the hand.
     module.playCard = module.remove;
+
+    function addCardImages(hand, cards) {
+        var i,
+            src;
+        if (!cards) {
+            return;
+        }
+        cards = module.cardNames(cards);
+        hand.empty();
+        for (i = 0; i < cards.length; ++i) {
+            src = "src='" + module.options.imagesUrl + cards[i] + '.svg' + "'";
+            hand.append("<img class='card' " + src + ">");
+        }
+    }
 
     // Parse the data-name attribute in HTML.
     function readOptions($elem, name) {
@@ -104,8 +155,9 @@ cards = (function () {
 
     function fanCards(cards, self, options) {
         var n = cards.length;
-        if (n == 0) return;
-
+        if (n === 0) {
+            return;
+        }
 
         var width = cards[0].clientWidth || 90; // hack: for a hidden hand
         var height = cards[0].clientHeight || 125; // hack: for a hidden hand
@@ -121,8 +173,12 @@ cards = (function () {
             var card = cards[i++];
             card.style.left = coord.x + "px";
             card.style.top = coord.y + "px";
-            card.onmouseover = function () { self.cardSetTop(card, coord.y - 10) };
-            card.onmouseout = function () { self.cardSetTop(card, coord.y) };
+            card.onmouseover = function () {
+                self.cardSetTop(card, coord.y - 10);
+            };
+            card.onmouseout = function () {
+                self.cardSetTop(card, coord.y);
+            };
             var rotationAngle = Math.round(coord.angle);
             var prefixes = ["Webkit", "Moz", "O", "ms"];
             prefixes.forEach(function (prefix) {
@@ -171,21 +227,18 @@ cards = (function () {
             offsetX += ((rotatedDimensions[0] - cardWidth) / 2);
 
             offsetY = (minY * -1);
-        }
-        else if (direction === "S") {
+        } else if (direction === "S") {
             offsetX = (minX * -1);
             offsetX += ((rotatedDimensions[0] - cardWidth) / 2);
 
             offsetY = ((minY + (maxY - minY)) * -1);
-        }
-        else if (direction === "W") {
+        } else if (direction === "W") {
             offsetY = (minY * -1);
             offsetY += ((rotatedDimensions[1] - cardHeight) / 2);
 
             offsetX = (minX * -1);
             offsetX += (cardHeight - Math.rotatePointInBox(0, 0, 270, cardWidth, cardHeight)[1]);
-        }
-        else if (direction === "E") {
+        } else if (direction === "E") {
             offsetY = (minY * -1);
             offsetY += ((rotatedDimensions[1] - cardHeight) / 2);
 
@@ -211,29 +264,23 @@ cards = (function () {
     }
 
     return module;
-} ());
+}());
 
 // Math Additions
-if(!Math.degreesToRadians)
-{
-    Math.degreesToRadians = function(degrees)
-    {
-        return degrees * (Math.PI/180);
+if (!Math.degreesToRadians) {
+    Math.degreesToRadians = function (degrees) {
+        return degrees * (Math.PI / 180);
     };
 }
 
-if(!Math.radiansToDegrees)
-{
-    Math.radiansToDegrees = function(radians)
-    {
-        return radians * (180/Math.PI);
+if (!Math.radiansToDegrees) {
+    Math.radiansToDegrees = function (radians) {
+        return radians * (180 / Math.PI);
     };
 }
 
-if(!Math.getRotatedDimensions)
-{
-    Math.getRotatedDimensions = function(angle_in_degrees, width, height)
-    {
+if (!Math.getRotatedDimensions) {
+    Math.getRotatedDimensions = function (angle_in_degrees, width, height) {
         var angle = angle_in_degrees * Math.PI / 180,
             sin   = Math.sin(angle),
             cos   = Math.cos(angle);
@@ -252,10 +299,8 @@ if(!Math.getRotatedDimensions)
     };
 }
 
-if(!Math.rotatePointInBox)
-{
-    Math.rotatePointInBox = function(x, y, angle, width, height)
-    {
+if (!Math.rotatePointInBox) {
+    Math.rotatePointInBox = function (x, y, angle, width, height) {
         angle = Math.degreesToRadians(angle);
 
         var centerX = width / 2.0;
@@ -278,4 +323,6 @@ $(window).load(function () {
 });
 
 // Call cards.play, when a card is clicked in an active hand.
-$(".hand").on("click", "img.card", function () { cards.play($(this)) });
+$(".hand").on("click", "img.card", function () {
+    cards.play($(this));
+});
