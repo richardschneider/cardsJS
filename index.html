@@ -9,7 +9,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="site/slate.css">
     <link rel="stylesheet" type="text/css" href="cards.css">
-	
+
     <title>Cards JS</title>
 <style type="text/css">
 .item{
@@ -52,8 +52,8 @@ img.card {
 <a id="welcome" class="anchor" href="#welcome" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to Cards JS</h3>
 
 <p>
-This project allows you to create beautiful pages containing the standard playing cards.  It is as simple as adding the HTML tag 
-<code>&lt;img class='card' src='cards/KS.svg'></code> to display the king of spades. 
+This project allows you to create beautiful pages containing the standard playing cards.  It is as simple as adding the HTML tag
+<code>&lt;img class='card' src='cards/KS.svg'></code> to display the king of spades.
 </p>
 
 <p>
@@ -96,67 +96,79 @@ all the details and <a href="fiddle.html">fiddle</a> for an interactive demo.
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-	  <div class="hand hhand-compact">
-		<img class='card' src='cards/AS.svg'>
-		<img class='card' src='cards/KS.svg'>
-		<img class='card' src='cards/QS.svg'>
-		<img class='card' src='cards/JS.svg'>
-		<img class='card' src='cards/10S.svg'>
-		<img class='card' src='cards/9H.svg'>
-		<img class='card' src='cards/3H.svg'>
-	  </div>
+      <div class="hand hhand-compact">
+        <img class='card' src='cards/AS.svg'>
+        <img class='card' src='cards/KS.svg'>
+        <img class='card' src='cards/QS.svg'>
+        <img class='card' src='cards/JS.svg'>
+        <img class='card' src='cards/10S.svg'>
+        <img class='card' src='cards/9H.svg'>
+        <img class='card' src='cards/3H.svg'>
+      </div>
     </div>
 
     <div class="item">
-	<div class="hand vhand-compact">
-		<img class='card' src='cards/AS.svg'>
-		<img class='card' src='cards/KS.svg'>
-		<img class='card' src='cards/QS.svg'>
-		<img class='card' src='cards/JS.svg'>
-		<img class='card' src='cards/10S.svg'>
-	</div>
-	<div class="hand vhand-compact">
-		<img class='card' src='cards/9H.svg'>
-		<img class='card' src='cards/3H.svg'>
-	</div>
-	<div class="hand vhand-compact">
-		<img class='card' src='cards/10D.svg'>
-		<img class='card' src='cards/4D.svg'>
-		<img class='card' src='cards/2D.svg'>
-	</div>
-	<div class="hand vhand-compact">
-		<img class='card' src='cards/8C.svg'>
-		<img class='card' src='cards/7C.svg'>
-		<img class='card' src='cards/6C.svg'>
-	</div>
+    <div class="hand vhand-compact">
+        <img class='card' src='cards/AS.svg'>
+        <img class='card' src='cards/KS.svg'>
+        <img class='card' src='cards/QS.svg'>
+        <img class='card' src='cards/JS.svg'>
+        <img class='card' src='cards/10S.svg'>
+    </div>
+    <div class="hand vhand-compact">
+        <img class='card' src='cards/9H.svg'>
+        <img class='card' src='cards/3H.svg'>
+    </div>
+    <div class="hand vhand-compact">
+        <img class='card' src='cards/10D.svg'>
+        <img class='card' src='cards/4D.svg'>
+        <img class='card' src='cards/2D.svg'>
+    </div>
+    <div class="hand vhand-compact">
+        <img class='card' src='cards/8C.svg'>
+        <img class='card' src='cards/7C.svg'>
+        <img class='card' src='cards/6C.svg'>
+    </div>
     </div>
 
     <div class="item">
-	<div class="hand fan" data-fan="radius: 100; spacing: 0.1;">
-		<img class='card' src='cards/AS.svg'>
-		<img class='card' src='cards/KS.svg'>
-		<img class='card' src='cards/QS.svg'>
-		<img class='card' src='cards/JS.svg'>
-		<img class='card' src='cards/10S.svg'>
-		<img class='card' src='cards/9H.svg'>
-		<img class='card' src='cards/3H.svg'>
-		<img class='card' src='cards/10D.svg'>
-		<img class='card' src='cards/4D.svg'>
-		<img class='card' src='cards/2D.svg'>
-		<img class='card' src='cards/8C.svg'>
-		<img class='card' src='cards/7C.svg'>
-		<img class='card' src='cards/6C.svg'>
-	</div>
+    <div class="hand fan" data-fan="radius: 100; spacing: 0.1;">
+        <img class='card' src='cards/AS.svg'>
+        <img class='card' src='cards/KS.svg'>
+        <img class='card' src='cards/QS.svg'>
+        <img class='card' src='cards/JS.svg'>
+        <img class='card' src='cards/10S.svg'>
+        <img class='card' src='cards/9H.svg'>
+        <img class='card' src='cards/3H.svg'>
+        <img class='card' src='cards/10D.svg'>
+        <img class='card' src='cards/4D.svg'>
+        <img class='card' src='cards/2D.svg'>
+        <img class='card' src='cards/8C.svg'>
+        <img class='card' src='cards/7C.svg'>
+        <img class='card' src='cards/6C.svg'>
+    </div>
     </div>
 
    </div>
 
   </div>
+          <p>The hand layouts can be defined in <b>javascript</b> or in <b>html</b> with
+              the <code>data-hand</code> attibute.  If you
+    are using <a href="knockoutjs.org">knockout</a> the `fan` and `hand` bindings are availble.
+    See <a href="https://github.com/richardschneider/cardsJS/wiki/Controlling-the-hand">Controlling the hand</a> and
+    <a href="https://github.com/richardschneider/cardsJS/wiki/Controlling-the-fan">the fan</a> for more details.
+</p>
+
+<div>
+    <pre><code>&lt;p class="hand" data-hand="flow: horizontal; cards: AH,KH,QH,3H,2H">&lt;/p></code></pre>
+    <br/>
+    <p class="hand" data-hand="flow: horizontal; cards: AH,KH,QH,3H,2H"></p>
+</div>
 
 <h3>
 <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Need Help?</h3>
 
-<p>Having trouble with Card JS? Check out the documentation at the <a href="https://github.com/richardschneider/cardsJS/wiki">wiki</a> 
+<p>Having trouble with Card JS? Check out the documentation at the <a href="https://github.com/richardschneider/cardsJS/wiki">wiki</a>
 or raise an <a href="https://github.com/richardschneider/cardsJS/issues">issue</a>.
 </p>
 
@@ -166,7 +178,7 @@ or raise an <a href="https://github.com/richardschneider/cardsJS/issues">issue</
 Chris Aguilar for his beautiful <a href="http://code.google.com/p/vectorized-playing-cards/">Vectorized Playing Cards</a>.<br />
 David Gouvei for his <a href="http://gamedev.stackexchange.com/questions/22162/how-can-i-evenly-fan-out-a-hand-of-cards">card fan</a>
 algorithm.<br />
-<a href="http://github.com">GitHub</a> and <a href="http://pages.github.com">GitHub Pages</a> for making cloud development easy. 
+<a href="http://github.com">GitHub</a> and <a href="http://pages.github.com">GitHub Pages</a> for making cloud development easy.
 </p>
       </section>
     </div>
@@ -197,7 +209,7 @@ algorithm.<br />
             incrementCard($("#card-images img"), -10);
         });
 
-    </script>    
+    </script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

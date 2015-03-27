@@ -142,13 +142,19 @@ var cards = (function () {
 
     // Parse the data-name attribute in HTML.
     function readOptions($elem, name) {
-        var i, len, s, options, o = {};
+        var v, i, len, s, options, o = {};
 
         options = $elem.data(name);
         options = (options || '').replace(/\s/g, '').split(';');
         for (i = 0, len = options.length; i < len; i++) {
             s = options[i].split(':');
-            o[s[0]] = Number(s[1]) || s[1];
+            v = s[1];
+            if (v && v.indexOf(',') >= 0) {
+                o[s[0]] = v.split(',');
+            }
+            else {
+                o[s[0]] = Number(v) || v;
+            }
         }
         return o;
     }
