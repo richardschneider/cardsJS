@@ -17,6 +17,7 @@
     "cards",
     "svg"
   ],
+  "main": "cards.js",
   "license": "MIT",
   "ignore": [
     "**/.*",
