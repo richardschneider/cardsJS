@@ -1,8 +1,23 @@
 /*jslint vars: true, plusplus: true */
-/*global ko, $, cards */
-'use strict';
+/*globals define, exports, module, require, cards */
 
-var cards = (function () {
+(function (root, factory) {
+    'use strict';
+
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['jquery'], factory);
+    } else if (typeof exports === 'object') {
+        // Node. Does not work with strict CommonJS, but
+        // only CommonJS-like environments that support module.exports,
+        // like Node.
+        module.exports = factory(require('jquery'));
+    } else {
+        // Browser globals (root is window)
+        root.cards = factory(root.jQuery);
+    }
+}(this, function ($) {
+    'use strict';
 
     var module = {
         options: {
@@ -151,8 +166,7 @@ var cards = (function () {
             v = s[1];
             if (v && v.indexOf(',') >= 0) {
                 o[s[0]] = v.split(',');
-            }
-            else {
+            } else {
                 o[s[0]] = Number(v) || v;
             }
         }
@@ -269,8 +283,13 @@ var cards = (function () {
         return coords;
     }
 
+    // Just return a value to define the module export.
+    // This example returns an object, but the module
+    // can return a function as the exported value.
     return module;
-}());
+}));
+
+'use strict';
 
 // Math Additions
 if (!Math.degreesToRadians) {
@@ -321,6 +340,7 @@ if (!Math.rotatePointInBox) {
         return [ dx2 + centerX, dy2 + centerY ];
     };
 }
+
 
 // When the document is ready, then adjust the cards in a fan, except ones using KO.
 $(window).load(function () {
