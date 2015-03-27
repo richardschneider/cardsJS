@@ -1,0 +1,28 @@
+{
+  "name": "cardsJS",
+  "version": "0.1.0",
+  "homepage": "https://github.com/richardschneider/cardsJS",
+  "authors": [
+    "Richard Schneider <makaretu@gmail.com>"
+  ],
+  "description": "Scalable playing cards with variour hand layouts.",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "bridge",
+    "playing",
+    "cards",
+    "svg"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
