@@ -1,11 +1,11 @@
 {
   "name": "cardsJS",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "homepage": "https://github.com/richardschneider/cardsJS",
   "authors": [
     "Richard Schneider <makaretu@gmail.com>"
   ],
-  "description": "Scalable playing cards with variour hand layouts.",
+  "description": "Scalable playing cards with various hand layouts.",
   "moduleType": [
     "amd",
     "globals",
@@ -24,6 +24,13 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
-  ]
+    "index.html",
+    "site",
+    "sync.cmd",
+    "brackets.json"
+  ],
+  "dependencies": {
+    "knockout": "~3.3.0",
+    "jquery": "~2.1.3"
+  }
 }
