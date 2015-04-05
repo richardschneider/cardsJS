@@ -1,0 +1,51 @@
+{
+  "name": "cardsJS",
+  "description": "Scalable playing cards with various hand layouts.",
+  "version": "0.0.0",
+  "homepage": "http://richardschneider.github.io/cardsJS/",
+  "bugs": "https://github.com/richardschneider/cardsJS/issues",
+  "license": "MIT",
+  "main": "cards.js",
+  "author": {
+    "name": "Richard Schneider",
+    "email": "makaretu@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/richardschneider/cardsJS"
+  },
+  "keywords": [
+    "bridge",
+    "playing",
+    "cards",
+    "svg"
+  ],
+  "dependencies": {
+    "knockout": "~3.3.0",
+    "jquery": "~2.1.3"
+  },
+  "devDependencies": {
+    "browserify": "9.0.1",
+    "chai": "^2.2.0",
+    "gulp": "^3.8.8",
+    "gulp-bump": "^0.1.11",
+    "gulp-filter": "^2.0.2",
+    "gulp-git": "^1.1.0",
+    "gulp-istanbul": "^0.5.0",
+    "gulp-jscs": "^1.1.2",
+    "gulp-jshint": "^1.8.4",
+    "gulp-load-plugins": "^0.6.0",
+    "gulp-mocha": "^1.1.0",
+    "gulp-plumber": "^0.6.5",
+    "gulp-rename": "^1.2.2",
+    "gulp-tag-version": "^1.2.1",
+    "gulp-uglify": "^1.1.0",
+    "gulp-util": "^3.0.1",
+    "jshint-stylish": "^0.4.0",
+    "should": "^4.0.4",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "scripts": {
+    "test": "gulp test"
+  }
+}
