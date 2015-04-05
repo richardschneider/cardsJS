@@ -129,7 +129,7 @@
             // Normalise the card names.
             for (i = 0; i < cards.length; ++i) {
                 if (cards[i]) {
-                    name = cards[i].toUpperCase();
+                    name = cards[i].toString().toUpperCase();
                     names.push(name);
                 }
             }

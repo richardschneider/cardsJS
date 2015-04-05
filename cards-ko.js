@@ -1,3 +1,5 @@
+/*globals define, exports, module, require */
+
 (function (root, factory) {
     'use strict';
 
@@ -14,6 +16,8 @@
         root.cards = factory(root.jQuery, root.ko, root.cards);
     }
 }(this, function ($, ko, cards) {
+    'use strict';
+
     /*
      * cards JS suport for Knockout
      */
@@ -50,4 +54,5 @@
         }
     };
 
-}
+}));
+
