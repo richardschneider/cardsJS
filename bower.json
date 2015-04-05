@@ -27,6 +27,7 @@
     "index.html",
     "site",
     "sync.cmd",
+    "gulpfile.js",
     "brackets.json"
   ],
   "dependencies": {
