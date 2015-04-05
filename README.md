@@ -28,7 +28,7 @@ to indicate that the card will be selected.
     </div>
 
 A hand can also be declared with the `data-hand` attribute, see [Controlling the hand](https://github.com/richardschneider/cardsJS/wiki/Controlling-the-hand)
-for more details.
+for more details. Also see [Controlling the fan](https://github.com/richardschneider/cardsJS/wiki/Controlling-the-fan)
 
     <div class="hand active-hand"
          data-hand="flow: horizontal; cards: AS,KS,QS,JS,10S,9H,3H">

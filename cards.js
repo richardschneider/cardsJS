@@ -104,8 +104,8 @@
             if (options.width) {
                 cards.width(options.width);
             }
-            width = cards[0].clientWidth || options.width || 70; // hack: for a hidden hand
-            height = cards[0].clientHeight || 125; // hack: for a hidden hand
+            width = options.width || cards[0].clientWidth || 70; // hack: for a hidden hand
+            height = cards[0].clientHeight || Math.floor(width * 1.4); // hack: for a hidden hand
             if (options.flow === 'vertical' && options.spacing < 1.0) {
                 cards.slice(1).css('margin-top', -height * (1.0 - options.spacing));
                 cards.slice(1).css('margin-left', 0);
@@ -179,8 +179,8 @@
             return;
         }
 
-        var width = cards[0].clientWidth || 90; // hack: for a hidden hand
-        var height = cards[0].clientHeight || 125; // hack: for a hidden hand
+        var width = options.width || cards[0].clientWidth || 90; // hack: for a hidden hand
+        var height = cards[0].clientHeight || Math.floor(width * 1.4); // hack: for a hidden hand
         var box = {};
         var coords = calculateCoords(n, options.radius, width, height, options.fanDirection, options.spacing, box);
 
@@ -344,8 +344,12 @@ if (!Math.rotatePointInBox) {
 
 // When the document is ready, then adjust the cards in a fan, except ones using KO.
 $(window).load(function () {
-    cards.fan($(".fan:not([data-bind])"));
-    cards.hand($(".hand[data-hand]"));
+    $(".fan:not([data-bind])").each(function() {
+        cards.fan($(this));
+    });
+    $(".hand[data-hand]").each(function() {
+        cards.hand($(this));
+    });
 });
 
 // Call cards.play, when a card is clicked in an active hand.
