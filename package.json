@@ -1,7 +1,7 @@
 {
   "name": "cardsJS",
   "description": "Scalable playing cards with various hand layouts.",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "http://richardschneider.github.io/cardsJS/",
   "bugs": "https://github.com/richardschneider/cardsJS/issues",
   "license": "MIT",
