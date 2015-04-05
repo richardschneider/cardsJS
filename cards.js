@@ -283,6 +283,24 @@
         return coords;
     }
 
+    // If loaded directly from a script, the do the jquery shuffle.
+    $(window).load(function () {
+        // Adjust the cards in a fan, except ones using KO.
+        $(".fan:not([data-bind])").each(function () {
+            cards.fan($(this));
+        });
+
+        // Process any data-hand attributes
+        $(".hand[data-hand]").each(function () {
+            cards.hand($(this));
+        });
+
+        // Call cards.play, when a card is clicked in an active hand.
+        $(".hand").on("click", "img.card", function () {
+            cards.play($(this));
+        });
+    });
+
     // Just return a value to define the module export.
     // This example returns an object, but the module
     // can return a function as the exported value.
@@ -340,19 +358,3 @@ if (!Math.rotatePointInBox) {
         return [ dx2 + centerX, dy2 + centerY ];
     };
 }
-
-
-// When the document is ready, then adjust the cards in a fan, except ones using KO.
-$(window).load(function () {
-    $(".fan:not([data-bind])").each(function() {
-        cards.fan($(this));
-    });
-    $(".hand[data-hand]").each(function() {
-        cards.hand($(this));
-    });
-});
-
-// Call cards.play, when a card is clicked in an active hand.
-$(".hand").on("click", "img.card", function () {
-    cards.play($(this));
-});
