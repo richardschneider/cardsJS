@@ -284,7 +284,7 @@
     }
 
     // If loaded directly from a script, the do the jquery shuffle.
-    $(window).load(function () {
+    $(window).on('load', function () {
         // Adjust the cards in a fan, except ones using KO.
         $(".fan:not([data-bind])").each(function () {
             cards.fan($(this));
