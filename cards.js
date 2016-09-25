@@ -287,17 +287,17 @@
     $(window).on('load', function () {
         // Adjust the cards in a fan, except ones using KO.
         $(".fan:not([data-bind])").each(function () {
-            cards.fan($(this));
+            module.fan($(this));
         });
 
         // Process any data-hand attributes
         $(".hand[data-hand]").each(function () {
-            cards.hand($(this));
+            module.hand($(this));
         });
 
         // Call cards.play, when a card is clicked in an active hand.
         $(".hand").on("click", "img.card", function () {
-            cards.play($(this));
+            module.play($(this));
         });
     });
 
