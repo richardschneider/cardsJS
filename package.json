@@ -29,6 +29,7 @@
     "chai": "^2.2.0",
     "gulp": "^3.8.8",
     "gulp-bump": "^0.1.11",
+    "gulp-cssnano": "^2.1.2",
     "gulp-filter": "^2.0.2",
     "gulp-git": "^1.1.0",
     "gulp-istanbul": "^0.5.0",
@@ -38,11 +39,13 @@
     "gulp-mocha": "^1.1.0",
     "gulp-plumber": "^0.6.5",
     "gulp-rename": "^1.2.2",
+    "gulp-svgmin": "^1.2.3",
     "gulp-tag-version": "^1.2.1",
-    "gulp-uglify": "^1.1.0",
+    "gulp-uglify": "^1.5.4",
     "gulp-util": "^3.0.1",
     "jshint-stylish": "^0.4.0",
     "should": "^4.0.4",
+    "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
   "scripts": {

@@ -3,12 +3,19 @@
 var gulp   = require('gulp');
 var plugins = require('gulp-load-plugins')();
 var browserify = require('browserify');
+var cssnano = require('gulp-cssnano');
+var svgmin = require('gulp-svgmin');
 var source = require('vinyl-source-stream');
 var tag_version = require('gulp-tag-version');
+var uglify = require('gulp-uglify');
+var buffer = require('vinyl-buffer');
+var rename = require('gulp-rename');
 
 var paths = {
-  source: ['cards.js, cards-ko.js'],
-  tests: ['./test/**/*.js', '!test/{temp,temp/**}'],
+    source: ['cards.js', 'cards-ko.js'],
+    css: ['cards.css'],
+    tests: ['./test/**/*.js', '!test/{temp,temp/**}'],
+    cards: ['./cards/*.svg']
 };
 
 var plumberConf = {};
@@ -62,10 +69,26 @@ gulp.task('release', ['bump'], function (cb) {
     });
 });
 
-gulp.task('watch', ['test'], function () {
-  gulp.watch(paths.watch, ['test']);
+gulp.task('dist', function() {
+    gulp.src(paths.source)
+        .pipe(gulp.dest('./dist'))
+        .pipe(buffer())
+        .pipe(uglify())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('./dist/'));
+    ;
+    gulp.src(paths.css)
+        .pipe(gulp.dest('./dist'))
+        .pipe(buffer())
+        .pipe(cssnano())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('./dist/'));
+    ;
+    gulp.src(paths.cards)
+        .pipe(svgmin())
+        .pipe(gulp.dest('./dist/cards'));
+    ;
 });
 
 gulp.task('test', ['lint', 'istanbul']);
-
 gulp.task('default', ['test']);
