@@ -10,6 +10,31 @@ I'm using the [Vectorized Playing Cards 1.3](http://code.google.com/p/vectorized
 The [change log](https://github.com/richardschneider/cardsJS/releases) is automatically produced with
 the help of [semantic-release](https://github.com/semantic-release/semantic-release).
 
+## Getting started
+
+**cardsJS** is available for [Node.js](https://nodejs.org) and most modern browsers.  If you want to know if your currrent browser is compatible, run the [online test suite](https://unpkg.com/table-master-parser/test/index.html).
+
+Install with [npm](http://blog.npmjs.org/post/85484771375/how-to-install-npm)
+
+    > npm install cardsJS --save
+
+
+### Browser
+
+Include the package from your project
+
+````html
+<link rel="stylesheet" type="text/css" href="./node_modules/cardsJS/dist/cards.min.css" />
+<script src="./node_modules/cardsJS/dist/cards.min.js" type="text/javascript"></script>
+````
+
+or from the [unpkg CDN](https://unpkg.com)
+
+````html
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/cardsJS/dist/cards.min.css" />
+<script src="https://unpkg.com/cardsJS/dist/cards.min.js"  type="text/javascript"></script>
+````
+
 ## Cards
 
 Use the `<img class='card' src='cards/id.svg'>` HTML tag; where *id* is the identifier of the card.  The *id* is composed of the rank and then the suit of the card,
