@@ -1,0 +1,25 @@
+sudo: false
+language: node_js
+
+env: CI=true
+
+node_js:
+  - stable
+
+cache:
+  directories:
+    - node_modules
+
+before_script:
+  - npm prune
+
+script:
+  - gulp ci
+
+after_success:
+#  - gulp coverage
+# - npm run semantic-release
+
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/

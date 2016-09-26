@@ -93,4 +93,5 @@ gulp.task('dist', function() {
 });
 
 gulp.task('test', ['lint', 'istanbul']);
+gulp.task('ci', ['test', 'dist'])
 gulp.task('default', ['test']);
