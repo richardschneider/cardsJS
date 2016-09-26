@@ -22,11 +22,11 @@
      * cards JS suport for Knockout
      */
     ko.bindingHandlers.fan = {
-        init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
+        init: function (element) {
             $(element).addClass('fan');
         },
 
-        update: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
+        update: function (element, valueAccessor) {
             var params = valueAccessor(),
                 options = {},
                 p;
@@ -41,7 +41,7 @@
 
     ko.bindingHandlers.hand = {
 
-        update: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
+        update: function (element, valueAccessor) {
             var params = valueAccessor(),
                 options = {},
                 p;

@@ -1,5 +1,5 @@
-/*jslint vars: true, plusplus: true */
-/*globals define, exports, module, require, cards */
+/*jslint vars: true, plusplus: true, -W003 */
+/*globals window, define, exports, module, require */
 
 (function (root, factory) {
     'use strict';
@@ -306,8 +306,6 @@
     // can return a function as the exported value.
     return module;
 }));
-
-'use strict';
 
 // Math Additions
 if (!Math.degreesToRadians) {

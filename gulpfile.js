@@ -1,11 +1,11 @@
 'use strict';
 
 var gulp   = require('gulp');
+var jshint = require('gulp-jshint');
 var plugins = require('gulp-load-plugins')();
 var browserify = require('browserify');
 var cssnano = require('gulp-cssnano');
 var svgmin = require('gulp-svgmin');
-var source = require('vinyl-source-stream');
 var tag_version = require('gulp-tag-version');
 var uglify = require('gulp-uglify');
 var buffer = require('vinyl-buffer');
@@ -17,6 +17,7 @@ var paths = {
     tests: ['./test/**/*.js', '!test/{temp,temp/**}'],
     cards: ['./cards/*.svg']
 };
+paths.lint = paths.source;
 
 var plumberConf = {};
 
@@ -27,11 +28,10 @@ if (process.env.CI) {
 }
 
 gulp.task('lint', function () {
-  return gulp.src(paths.source)
-    .pipe(plugins.jshint('.jshintrc'))
-    .pipe(plugins.plumber(plumberConf))
-    .pipe(plugins.jscs())
-    .pipe(plugins.jshint.reporter('jshint-stylish'));
+  return gulp.src(paths.lint)
+    .pipe(jshint())
+    .pipe(jshint.reporter('jshint-stylish'))
+    .pipe(jshint.reporter('fail'));
 });
 
 gulp.task('istanbul', function (cb) {
@@ -64,7 +64,9 @@ gulp.task('bump', ['test'], function () {
 
 gulp.task('release', ['bump'], function (cb) {
     return plugins.git.push('origin', 'master', {args: '--tags'}, function (err) {
-        if (err) throw err;
+        if (err) {
+            throw err;
+        }
         cb();
     });
 });
@@ -75,18 +77,18 @@ gulp.task('dist', function() {
         .pipe(buffer())
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./dist/'));
+        .pipe(gulp.dest('./dist/'))
     ;
     gulp.src(paths.css)
         .pipe(gulp.dest('./dist'))
         .pipe(buffer())
         .pipe(cssnano())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./dist/'));
+        .pipe(gulp.dest('./dist/'))
     ;
     gulp.src(paths.cards)
         .pipe(svgmin())
-        .pipe(gulp.dest('./dist/cards'));
+        .pipe(gulp.dest('./dist/cards'))
     ;
 });
 
