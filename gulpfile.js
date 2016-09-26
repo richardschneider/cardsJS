@@ -3,10 +3,8 @@
 var gulp   = require('gulp');
 var jshint = require('gulp-jshint');
 var plugins = require('gulp-load-plugins')();
-var browserify = require('browserify');
 var cssnano = require('gulp-cssnano');
 var svgmin = require('gulp-svgmin');
-var tag_version = require('gulp-tag-version');
 var uglify = require('gulp-uglify');
 var buffer = require('vinyl-buffer');
 var rename = require('gulp-rename');
@@ -50,27 +48,6 @@ gulp.task('istanbul', function (cb) {
     });
 });
 
-gulp.task('bump', ['test'], function () {
-  var bumpType = plugins.util.env.type || 'patch'; // major.minor.patch
-
-  return gulp.src(['./package.json', './bower.json'])
-    .pipe(plugins.bump({ type: bumpType }))
-    .pipe(gulp.dest('./'))
-    .pipe(plugins.git.add())
-    .pipe(plugins.git.commit('new release'))
-    .pipe(plugins.filter('package.json'))
-    .pipe(tag_version());
-});
-
-gulp.task('release', ['bump'], function (cb) {
-    return plugins.git.push('origin', 'master', {args: '--tags'}, function (err) {
-        if (err) {
-            throw err;
-        }
-        cb();
-    });
-});
-
 gulp.task('dist', function() {
     gulp.src(paths.source)
         .pipe(gulp.dest('./dist'))
@@ -93,5 +70,5 @@ gulp.task('dist', function() {
 });
 
 gulp.task('test', ['lint', 'istanbul']);
-gulp.task('ci', ['test', 'dist'])
+gulp.task('ci', ['test', 'dist']);
 gulp.task('default', ['test']);
