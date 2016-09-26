@@ -1,6 +1,8 @@
 /*jslint vars: true, plusplus: true, -W003 */
 /*globals window, document, define, exports, module, require */
 
+var cardsScript = document.currentScript;
+
 (function (root, factory) {
     'use strict';
 
@@ -302,9 +304,8 @@
     });
 
     // Default imagesUrl to a subfolder of the script source.
-    var mySource = document.currentScript.src;
-    if (mySource) {
-        var path = mySource.substring(0, mySource.lastIndexOf('/')) + '/cards/';
+    if (cardsScript && cardsScript.src) {
+        var path = cardsScript.src.substring(0, cardsScript.src.lastIndexOf('/')) + '/cards/';
         module.options.imagesUrl = path;
     }
 

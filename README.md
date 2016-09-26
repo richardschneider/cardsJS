@@ -21,18 +21,12 @@ Install with [npm](http://blog.npmjs.org/post/85484771375/how-to-install-npm)
 
 ### Browser
 
-Include the package from your project
-
-````html
-<link rel="stylesheet" type="text/css" href="./node_modules/cardsJS/dist/cards.min.css" />
-<script src="./node_modules/cardsJS/dist/cards.min.js" type="text/javascript"></script>
-````
-
-or from the [unpkg CDN](https://unpkg.com)
+Include the package from the [unpkg CDN](https://unpkg.com)
 
 ````html
 <link rel="stylesheet" type="text/css" href="https://unpkg.com/cardsJS/dist/cards.min.css" />
-<script src="https://unpkg.com/cardsJS/dist/cards.min.js"  type="text/javascript"></script>
+
+<script src="https://unpkg.com/cardsJS/dist/cards.min.js" type="text/javascript"></script>
 ````
 
 ## Cards
