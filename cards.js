@@ -1,5 +1,5 @@
 /*jslint vars: true, plusplus: true, -W003 */
-/*globals window, define, exports, module, require */
+/*globals window, document, define, exports, module, require */
 
 (function (root, factory) {
     'use strict';
@@ -300,6 +300,13 @@
             module.play($(this));
         });
     });
+
+    // Default imagesUrl to a subfolder of the script source.
+    var mySource = document.currentScript.src;
+    if (mySource) {
+        var path = mySource.substring(0, mySource.lastIndexOf('/')) + '/cards/';
+        module.options.imagesUrl = path;
+    }
 
     // Just return a value to define the module export.
     // This example returns an object, but the module
