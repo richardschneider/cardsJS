@@ -32,6 +32,9 @@ gulp.task('lint', function () {
     .pipe(jshint.reporter('fail'));
 });
 
+/*
+ * no test files yet.
+ */
 gulp.task('istanbul', function (cb) {
   gulp.src(paths.source)
     .pipe(plugins.istanbul()) // Covering files
@@ -69,6 +72,6 @@ gulp.task('dist', function() {
     ;
 });
 
-gulp.task('test', ['lint', 'istanbul']);
+gulp.task('test', ['lint'/*, 'istanbul'*/]);
 gulp.task('ci', ['test', 'dist']);
 gulp.task('default', ['test']);
