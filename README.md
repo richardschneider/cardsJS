@@ -1,5 +1,7 @@
 # cardsJS
 
+-- fojek : Forked, added Joker
+
 [![Travis build status](https://travis-ci.org/richardschneider/cardsJS.svg)](https://travis-ci.org/richardschneider/cardsJS)
 [![npm version](https://badge.fury.io/js/cardsJS.svg)](https://badge.fury.io/js/cardsJS) 
 
