@@ -18,6 +18,11 @@
 
     <style type="text/css">
         pre { font-size: 80%; }
+		div {
+		  display: table;
+		  margin-right: auto;
+		  margin-left: auto;
+		}
     </style>
   </head>
   <body>
@@ -96,30 +101,22 @@
 	A vertical layout with overlapping cards.  Each is column contains all the cards for the suit.  This can be used
 	to display a dummy hand in bridge.  Hovering over the card will make it jump to the right.
 	</p>
-    <div class="active-hand">
-	<div class="hand vhand-compact">
-		<img class='card' src='cards/AS.svg'>
-		<img class='card' src='cards/KS.svg'>
-		<img class='card' src='cards/QS.svg'>
-		<img class='card' src='cards/JS.svg'>
-		<img class='card' src='cards/10S.svg'>
+	<div>
+		<div>
+			<img class='card' src='cards/8C.svg'>
+		</div>
+		<div>
+			<img class='card' src='cards/AS.svg'>
+			&emsp;&emsp;&emsp;&emsp;
+			<img class='card' src='cards/9H.svg'>
+		</div>
+		
+		<div>
+			<img class='card' src='cards/6C.svg'>
+		</div>
 	</div>
-	<div class="hand vhand-compact">
-		<img class='card' src='cards/9H.svg'>
-		<img class='card' src='cards/3H.svg'>
-	</div>
-	<div class="hand vhand-compact">
-		<img class='card' src='cards/10D.svg'>
-		<img class='card' src='cards/4D.svg'>
-		<img class='card' src='cards/2D.svg'>
-	</div>
-	<div class="hand vhand-compact">
-		<img class='card' src='cards/8C.svg'>
-		<img class='card' src='cards/7C.svg'>
-		<img class='card' src='cards/6C.svg'>
-	</div>
-    </div>
   </div>
+  
   <div class="col-md-4">
 	<pre>
 &lt;div>
