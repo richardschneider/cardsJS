@@ -1,0 +1,225 @@
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=5,IE=9" ><![endif]-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>500</title>
+<meta charset="utf-8"/>
+<style>
+.page {
+  outline: 1px dashed green;
+  flex-direction: column; /* | row-reverse | column*/
+  display: flex; /* or inline-flex */
+  align-items: stretch;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.ligne {
+  outline: 1px dashed blue;
+  border:1px solid transparent;
+  display: flex; /* or inline-flex */
+  align-items: stretch;
+  flex-direction: row;
+  justify-content: center;
+}
+.colonne {
+  outline: 1px dashed red;
+  border:1px solid transparent;
+  display: flex; /* or inline-flex */
+  flex-grow: 1;
+  /*width: 200px;*/
+  align-items: center;
+  flex-direction: column;
+}
+.centre {
+  outline: 1px dashed red;
+  border:1px solid transparent;
+  display: flex; /* or inline-flex */
+  flex-grow: 3;
+  align-items: center;
+  flex-direction: column;
+}
+.centreTable {
+  outline: 1px dashed red;
+  border:1px solid transparent;
+  display: flex; /* or inline-flex */
+  flex-grow: 3;
+  align-items: center;
+  flex-direction: row;
+}
+.mainJoueur {
+	flex-grow: 3;
+    /*writing-mode: vertical-lr;
+	text-orientation: mixed;*/
+}
+.nomJoueur {
+	flex-grow: 1;
+    font-weight: bold;
+    font-size: 20px;
+}
+.hautOuBas {
+	flex-grow: 1;
+}
+.milieu {
+	flex-grow: 3;
+}
+.larg200 {
+	flex-grow: 0;
+	width: 200px;
+	align-items: baseline;
+}
+
+
+/*****************************/
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+form {
+  border: 3px solid #f1f1f1;
+  width: auto;
+  display: block;
+}
+
+input {
+  width: 100%;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 8px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+</style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="cards.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="cards.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<script>
+var connexion = document.getElementById("inp-connexion");
+
+connexion.addEventListener("click", connexion);
+
+  $(function () {
+	var socket = io();
+	$('form').submit(function(e){
+	  e.preventDefault(); // prevents page reloading
+		
+	  socket.emit('connexion', { 
+			nom: $('#nom').val(), 
+			pp: $('#passphrase').val()
+		  });
+	  //$('#nom').val('');
+	  return false;
+	});
+	socket.on('joueur', function(joueur){
+	  $('#Milieu').get()[0].innerHTML = "Vous etes connecte en tant que " + joueur.nom + ".";
+	});
+  });
+</script>
+<section class="page">
+	<div class="ligne">
+        <div class="colonne" id="divTitre">
+			<h1>Jeu de 500 en ligne!</h2>
+        </div>        
+		<div class="colonne larg200" id="divConnexion">
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+			  Connexion
+			</button>
+        </div>
+	</div>
+    <div class="ligne hautOuBas">
+        <div class="colonne">videG
+        </div>
+        <div class="centre">
+            <div class="nomJoueur">NomJoueurH</div>
+        	<div class="mainJoueur"><div class='hand vhand-compact' data-hand='flow: horizontal; spacing: 0.2; width: 90; cards: BLUE_BACK,BLUE_BACK,BLUE_BACK,BLUE_BACK,BLUE_BACK,BLUE_BACK,BLUE_BACK,BLUE_BACK,BLUE_BACK'></div></div>
+        </div>
+        <div class="colonne">videD
+        </div>
+	</div>
+    <div class="ligne milieu">
+        <div class="colonne">
+            <div class="nomJoueur">NomJoueurG</div>
+        	<div class="mainJoueur" id="divMainJoueurG"><div class='hand vhand-compact' data-hand='flow: vertical; spacing: 0.2; width: 90; cards: BLUE_BACK,BLUE_BACK,BLUE_BACK,BLUE_BACK,BLUE_BACK,BLUE_BACK,BLUE_BACK,BLUE_BACK,BLUE_BACK'></div></div>
+        </div>
+        <div class="centre">
+        	<div class="centreTable" id="divCarteH"><img class='card' src='cards/AS.svg'></div>
+            <div class="centreTable">
+            	<div id="divCarteG"><img class='card' src='cards/AS.svg'></div>
+                <div>&emsp;&emsp;</div>
+                <div id="divCarteD"><img class='card' src='cards/AS.svg'></div>
+            </div>
+            <div class="centreTable" id="divCarteB"><img class='card' src='cards/AS.svg'></div>
+        </div>
+        <div class="colonne">
+            <div class="nomJoueur">NomJoueurD</div>
+        	<div class="mainJoueur"><div class='hand vhand-compact' data-hand='flow: vertical; spacing: 0.2; width: 90; cards: BLUE_BACK,BLUE_BACK,BLUE_BACK,BLUE_BACK,BLUE_BACK,BLUE_BACK,BLUE_BACK,BLUE_BACK,BLUE_BACK'></div></div>
+        </div>
+	</div>
+    <div class="ligne hautOuBas">
+        <div class="colonne">videG
+        </div>
+        <div class="centre">
+            <div class="nomJoueur">NomJoueurB</div>
+        	<div class="mainJoueur">
+				<div class="hand fan">
+					<img class='card' src='cards/AS.svg'>
+					<img class='card' src='cards/KS.svg'>
+					<img class='card' src='cards/QS.svg'>
+					<img class='card' src='cards/JS.svg'>
+					<img class='card' src='cards/10S.svg'>
+					<img class='card' src='cards/9S.svg'>
+					<img class='card' src='cards/3H.svg'>
+					<img class='card' src='cards/10D.svg'>
+					<img class='card' src='cards/4D.svg'>
+					<img class='card' src='cards/2D.svg'>
+					<img class='card' src='cards/8C.svg'>
+					<img class='card' src='cards/7C.svg'>
+					<img class='card' src='cards/Joker.svg'>
+				</div>
+			</div>
+        </div>
+        <div class="colonne">videD
+        </div>
+	</div>
+</section>
+
+<!-- Modal Connexion -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
